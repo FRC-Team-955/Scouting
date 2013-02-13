@@ -13,13 +13,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1250, 750]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -65,63 +61,63 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot1Defensive" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox5" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox6" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox7" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot1Broken" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot1Penalized" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot1LevelOne" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot1LevelTwo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot1LevelThree" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="68" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="chkBot2Defensive" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot2Broken" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot2Penalized" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot2LevelOne" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot2LevelTwo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot2LevelThree" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot3Defensive" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot3Broken" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot3Penalized" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot3LevelOne" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot3LevelTwo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot3LevelThree" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="chkBot4Defensive" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot4Broken" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot4Penalized" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot4LevelOne" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot4LevelTwo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot4LevelThree" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jCheckBox9" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox8" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox12" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox10" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox11" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="112" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox13" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox15" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox16" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox18" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox14" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox17" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jCheckBox19" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox21" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox22" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox24" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox20" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox23" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox25" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox27" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox28" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox30" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox26" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox29" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot5Defensive" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot5Broken" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot5Penalized" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot5LevelOne" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot5LevelTwo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot5LevelThree" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="73" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox31" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox33" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox34" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox36" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox32" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCheckBox35" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot6Defensive" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot6Broken" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot6Penalized" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot6LevelOne" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot6LevelTwo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBot6LevelThree" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
           </Group>
@@ -149,82 +145,82 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot1Defensive" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot1Penalized" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot1Broken" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox5" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot1LevelOne" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox6" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot1LevelTwo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot1LevelThree" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jCheckBox9" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot2Defensive" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox8" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot2Penalized" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot2Broken" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox12" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot2LevelOne" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox10" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot2LevelTwo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox11" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot2LevelThree" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jCheckBox13" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot3Defensive" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox16" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot3Penalized" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox15" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot3Broken" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox18" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot3LevelOne" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox14" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot3LevelTwo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox17" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot3LevelThree" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jCheckBox19" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot4Defensive" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox22" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot4Penalized" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox21" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot4Broken" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox24" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot4LevelOne" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox20" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot4LevelTwo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox23" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot4LevelThree" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jCheckBox31" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot6Defensive" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox34" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot6Penalized" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox33" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot6Broken" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox36" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot6LevelOne" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox32" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot6LevelTwo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox35" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot6LevelThree" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jCheckBox25" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot5Defensive" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox28" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot5Penalized" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox27" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot5Broken" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox30" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot5LevelOne" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox26" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot5LevelTwo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCheckBox29" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkBot5LevelThree" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="172" max="32767" attributes="0"/>
@@ -307,6 +303,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -356,256 +355,259 @@
         <Property name="text" type="java.lang.String" value="Bot 5"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+    <Component class="javax.swing.JCheckBox" name="chkBot1Defensive">
       <Properties>
         <Property name="text" type="java.lang.String" value="Defensive ?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot1DefensiveActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+    <Component class="javax.swing.JCheckBox" name="chkBot1Penalized">
       <Properties>
         <Property name="text" type="java.lang.String" value="Penalized?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+    <Component class="javax.swing.JCheckBox" name="chkBot1Broken">
       <Properties>
         <Property name="text" type="java.lang.String" value="Broken?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+    <Component class="javax.swing.JCheckBox" name="chkBot1LevelOne">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level One Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot1LevelOneActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox6">
+    <Component class="javax.swing.JCheckBox" name="chkBot1LevelTwo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Two Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot1LevelTwoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox7">
+    <Component class="javax.swing.JCheckBox" name="chkBot1LevelThree">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Three Climb?!?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox7ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot1LevelThreeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+    <Component class="javax.swing.JCheckBox" name="chkBot2Broken">
       <Properties>
         <Property name="text" type="java.lang.String" value="Broken?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox8">
+    <Component class="javax.swing.JCheckBox" name="chkBot2Penalized">
       <Properties>
         <Property name="text" type="java.lang.String" value="Penalized?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox9">
+    <Component class="javax.swing.JCheckBox" name="chkBot2Defensive">
       <Properties>
         <Property name="text" type="java.lang.String" value="Defensive ?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox9ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot2DefensiveActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox10">
+    <Component class="javax.swing.JCheckBox" name="chkBot2LevelTwo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Two Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox10ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot2LevelTwoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox11">
+    <Component class="javax.swing.JCheckBox" name="chkBot2LevelThree">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Three Climb?!?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox11ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot2LevelThreeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox12">
+    <Component class="javax.swing.JCheckBox" name="chkBot2LevelOne">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level One Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox12ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot2LevelOneActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox13">
+    <Component class="javax.swing.JCheckBox" name="chkBot3Defensive">
       <Properties>
         <Property name="text" type="java.lang.String" value="Defensive ?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox13ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot3DefensiveActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox14">
+    <Component class="javax.swing.JCheckBox" name="chkBot3LevelTwo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Two Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox14ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot3LevelTwoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox15">
+    <Component class="javax.swing.JCheckBox" name="chkBot3Broken">
       <Properties>
         <Property name="text" type="java.lang.String" value="Broken?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox16">
+    <Component class="javax.swing.JCheckBox" name="chkBot3Penalized">
       <Properties>
         <Property name="text" type="java.lang.String" value="Penalized?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox17">
+    <Component class="javax.swing.JCheckBox" name="chkBot3LevelThree">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Three Climb?!?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox17ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot3LevelThreeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox18">
+    <Component class="javax.swing.JCheckBox" name="chkBot3LevelOne">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level One Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox18ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot3LevelOneActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox19">
+    <Component class="javax.swing.JCheckBox" name="chkBot4Defensive">
       <Properties>
         <Property name="text" type="java.lang.String" value="Defensive ?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox19ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot4DefensiveActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox20">
+    <Component class="javax.swing.JCheckBox" name="chkBot4LevelTwo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Two Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox20ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot4LevelTwoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox21">
+    <Component class="javax.swing.JCheckBox" name="chkBot4Broken">
       <Properties>
         <Property name="text" type="java.lang.String" value="Broken?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox22">
+    <Component class="javax.swing.JCheckBox" name="chkBot4Penalized">
       <Properties>
         <Property name="text" type="java.lang.String" value="Penalized?"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot4PenalizedActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox23">
+    <Component class="javax.swing.JCheckBox" name="chkBot4LevelThree">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Three Climb?!?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox23ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot4LevelThreeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox24">
+    <Component class="javax.swing.JCheckBox" name="chkBot4LevelOne">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level One Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox24ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot4LevelOneActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox25">
+    <Component class="javax.swing.JCheckBox" name="chkBot5Defensive">
       <Properties>
         <Property name="text" type="java.lang.String" value="Defensive ?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox25ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot5DefensiveActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox26">
+    <Component class="javax.swing.JCheckBox" name="chkBot5LevelTwo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Two Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox26ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot5LevelTwoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox27">
+    <Component class="javax.swing.JCheckBox" name="chkBot5Broken">
       <Properties>
         <Property name="text" type="java.lang.String" value="Broken?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox28">
+    <Component class="javax.swing.JCheckBox" name="chkBot5Penalized">
       <Properties>
         <Property name="text" type="java.lang.String" value="Penalized?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox29">
+    <Component class="javax.swing.JCheckBox" name="chkBot5LevelThree">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Three Climb?!?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox29ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot5LevelThreeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox30">
+    <Component class="javax.swing.JCheckBox" name="chkBot5LevelOne">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level One Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox30ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot5LevelOneActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox31">
+    <Component class="javax.swing.JCheckBox" name="chkBot6Defensive">
       <Properties>
         <Property name="text" type="java.lang.String" value="Defensive ?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox31ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot6DefensiveActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox32">
+    <Component class="javax.swing.JCheckBox" name="chkBot6LevelTwo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Two Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox32ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot6LevelTwoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox33">
+    <Component class="javax.swing.JCheckBox" name="chkBot6Broken">
       <Properties>
         <Property name="text" type="java.lang.String" value="Broken?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox34">
+    <Component class="javax.swing.JCheckBox" name="chkBot6Penalized">
       <Properties>
         <Property name="text" type="java.lang.String" value="Penalized?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox35">
+    <Component class="javax.swing.JCheckBox" name="chkBot6LevelThree">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level Three Climb?!?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox35ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot6LevelThreeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox36">
+    <Component class="javax.swing.JCheckBox" name="chkBot6LevelOne">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level One Climb?"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox36ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkBot6LevelOneActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -44,45 +44,44 @@ public class Form extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jCheckBox11 = new javax.swing.JCheckBox();
-        jCheckBox12 = new javax.swing.JCheckBox();
-        jCheckBox13 = new javax.swing.JCheckBox();
-        jCheckBox14 = new javax.swing.JCheckBox();
-        jCheckBox15 = new javax.swing.JCheckBox();
-        jCheckBox16 = new javax.swing.JCheckBox();
-        jCheckBox17 = new javax.swing.JCheckBox();
-        jCheckBox18 = new javax.swing.JCheckBox();
-        jCheckBox19 = new javax.swing.JCheckBox();
-        jCheckBox20 = new javax.swing.JCheckBox();
-        jCheckBox21 = new javax.swing.JCheckBox();
-        jCheckBox22 = new javax.swing.JCheckBox();
-        jCheckBox23 = new javax.swing.JCheckBox();
-        jCheckBox24 = new javax.swing.JCheckBox();
-        jCheckBox25 = new javax.swing.JCheckBox();
-        jCheckBox26 = new javax.swing.JCheckBox();
-        jCheckBox27 = new javax.swing.JCheckBox();
-        jCheckBox28 = new javax.swing.JCheckBox();
-        jCheckBox29 = new javax.swing.JCheckBox();
-        jCheckBox30 = new javax.swing.JCheckBox();
-        jCheckBox31 = new javax.swing.JCheckBox();
-        jCheckBox32 = new javax.swing.JCheckBox();
-        jCheckBox33 = new javax.swing.JCheckBox();
-        jCheckBox34 = new javax.swing.JCheckBox();
-        jCheckBox35 = new javax.swing.JCheckBox();
-        jCheckBox36 = new javax.swing.JCheckBox();
+        chkBot1Defensive = new javax.swing.JCheckBox();
+        chkBot1Penalized = new javax.swing.JCheckBox();
+        chkBot1Broken = new javax.swing.JCheckBox();
+        chkBot1LevelOne = new javax.swing.JCheckBox();
+        chkBot1LevelTwo = new javax.swing.JCheckBox();
+        chkBot1LevelThree = new javax.swing.JCheckBox();
+        chkBot2Broken = new javax.swing.JCheckBox();
+        chkBot2Penalized = new javax.swing.JCheckBox();
+        chkBot2Defensive = new javax.swing.JCheckBox();
+        chkBot2LevelTwo = new javax.swing.JCheckBox();
+        chkBot2LevelThree = new javax.swing.JCheckBox();
+        chkBot2LevelOne = new javax.swing.JCheckBox();
+        chkBot3Defensive = new javax.swing.JCheckBox();
+        chkBot3LevelTwo = new javax.swing.JCheckBox();
+        chkBot3Broken = new javax.swing.JCheckBox();
+        chkBot3Penalized = new javax.swing.JCheckBox();
+        chkBot3LevelThree = new javax.swing.JCheckBox();
+        chkBot3LevelOne = new javax.swing.JCheckBox();
+        chkBot4Defensive = new javax.swing.JCheckBox();
+        chkBot4LevelTwo = new javax.swing.JCheckBox();
+        chkBot4Broken = new javax.swing.JCheckBox();
+        chkBot4Penalized = new javax.swing.JCheckBox();
+        chkBot4LevelThree = new javax.swing.JCheckBox();
+        chkBot4LevelOne = new javax.swing.JCheckBox();
+        chkBot5Defensive = new javax.swing.JCheckBox();
+        chkBot5LevelTwo = new javax.swing.JCheckBox();
+        chkBot5Broken = new javax.swing.JCheckBox();
+        chkBot5Penalized = new javax.swing.JCheckBox();
+        chkBot5LevelThree = new javax.swing.JCheckBox();
+        chkBot5LevelOne = new javax.swing.JCheckBox();
+        chkBot6Defensive = new javax.swing.JCheckBox();
+        chkBot6LevelTwo = new javax.swing.JCheckBox();
+        chkBot6Broken = new javax.swing.JCheckBox();
+        chkBot6Penalized = new javax.swing.JCheckBox();
+        chkBot6LevelThree = new javax.swing.JCheckBox();
+        chkBot6LevelOne = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1250, 750));
 
         lbTitle.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
         lbTitle.setText("Team 955 Scouting!");
@@ -102,6 +101,11 @@ public class Form extends javax.swing.JFrame {
         jScrollPane2.setViewportView(txAuto);
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Bot 2");
@@ -121,195 +125,200 @@ public class Form extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Bot 5");
 
-        jCheckBox1.setText("Defensive ?");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        chkBot1Defensive.setText("Defensive ?");
+        chkBot1Defensive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                chkBot1DefensiveActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("Penalized?");
+        chkBot1Penalized.setText("Penalized?");
 
-        jCheckBox3.setText("Broken?");
+        chkBot1Broken.setText("Broken?");
 
-        jCheckBox5.setText("Level One Climb?");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        chkBot1LevelOne.setText("Level One Climb?");
+        chkBot1LevelOne.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                chkBot1LevelOneActionPerformed(evt);
             }
         });
 
-        jCheckBox6.setText("Level Two Climb?");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+        chkBot1LevelTwo.setText("Level Two Climb?");
+        chkBot1LevelTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
+                chkBot1LevelTwoActionPerformed(evt);
             }
         });
 
-        jCheckBox7.setText("Level Three Climb?!?");
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+        chkBot1LevelThree.setText("Level Three Climb?!?");
+        chkBot1LevelThree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
+                chkBot1LevelThreeActionPerformed(evt);
             }
         });
 
-        jCheckBox4.setText("Broken?");
+        chkBot2Broken.setText("Broken?");
 
-        jCheckBox8.setText("Penalized?");
+        chkBot2Penalized.setText("Penalized?");
 
-        jCheckBox9.setText("Defensive ?");
-        jCheckBox9.addActionListener(new java.awt.event.ActionListener() {
+        chkBot2Defensive.setText("Defensive ?");
+        chkBot2Defensive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox9ActionPerformed(evt);
+                chkBot2DefensiveActionPerformed(evt);
             }
         });
 
-        jCheckBox10.setText("Level Two Climb?");
-        jCheckBox10.addActionListener(new java.awt.event.ActionListener() {
+        chkBot2LevelTwo.setText("Level Two Climb?");
+        chkBot2LevelTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox10ActionPerformed(evt);
+                chkBot2LevelTwoActionPerformed(evt);
             }
         });
 
-        jCheckBox11.setText("Level Three Climb?!?");
-        jCheckBox11.addActionListener(new java.awt.event.ActionListener() {
+        chkBot2LevelThree.setText("Level Three Climb?!?");
+        chkBot2LevelThree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox11ActionPerformed(evt);
+                chkBot2LevelThreeActionPerformed(evt);
             }
         });
 
-        jCheckBox12.setText("Level One Climb?");
-        jCheckBox12.addActionListener(new java.awt.event.ActionListener() {
+        chkBot2LevelOne.setText("Level One Climb?");
+        chkBot2LevelOne.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox12ActionPerformed(evt);
+                chkBot2LevelOneActionPerformed(evt);
             }
         });
 
-        jCheckBox13.setText("Defensive ?");
-        jCheckBox13.addActionListener(new java.awt.event.ActionListener() {
+        chkBot3Defensive.setText("Defensive ?");
+        chkBot3Defensive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox13ActionPerformed(evt);
+                chkBot3DefensiveActionPerformed(evt);
             }
         });
 
-        jCheckBox14.setText("Level Two Climb?");
-        jCheckBox14.addActionListener(new java.awt.event.ActionListener() {
+        chkBot3LevelTwo.setText("Level Two Climb?");
+        chkBot3LevelTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox14ActionPerformed(evt);
+                chkBot3LevelTwoActionPerformed(evt);
             }
         });
 
-        jCheckBox15.setText("Broken?");
+        chkBot3Broken.setText("Broken?");
 
-        jCheckBox16.setText("Penalized?");
+        chkBot3Penalized.setText("Penalized?");
 
-        jCheckBox17.setText("Level Three Climb?!?");
-        jCheckBox17.addActionListener(new java.awt.event.ActionListener() {
+        chkBot3LevelThree.setText("Level Three Climb?!?");
+        chkBot3LevelThree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox17ActionPerformed(evt);
+                chkBot3LevelThreeActionPerformed(evt);
             }
         });
 
-        jCheckBox18.setText("Level One Climb?");
-        jCheckBox18.addActionListener(new java.awt.event.ActionListener() {
+        chkBot3LevelOne.setText("Level One Climb?");
+        chkBot3LevelOne.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox18ActionPerformed(evt);
+                chkBot3LevelOneActionPerformed(evt);
             }
         });
 
-        jCheckBox19.setText("Defensive ?");
-        jCheckBox19.addActionListener(new java.awt.event.ActionListener() {
+        chkBot4Defensive.setText("Defensive ?");
+        chkBot4Defensive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox19ActionPerformed(evt);
+                chkBot4DefensiveActionPerformed(evt);
             }
         });
 
-        jCheckBox20.setText("Level Two Climb?");
-        jCheckBox20.addActionListener(new java.awt.event.ActionListener() {
+        chkBot4LevelTwo.setText("Level Two Climb?");
+        chkBot4LevelTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox20ActionPerformed(evt);
+                chkBot4LevelTwoActionPerformed(evt);
             }
         });
 
-        jCheckBox21.setText("Broken?");
+        chkBot4Broken.setText("Broken?");
 
-        jCheckBox22.setText("Penalized?");
-
-        jCheckBox23.setText("Level Three Climb?!?");
-        jCheckBox23.addActionListener(new java.awt.event.ActionListener() {
+        chkBot4Penalized.setText("Penalized?");
+        chkBot4Penalized.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox23ActionPerformed(evt);
+                chkBot4PenalizedActionPerformed(evt);
             }
         });
 
-        jCheckBox24.setText("Level One Climb?");
-        jCheckBox24.addActionListener(new java.awt.event.ActionListener() {
+        chkBot4LevelThree.setText("Level Three Climb?!?");
+        chkBot4LevelThree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox24ActionPerformed(evt);
+                chkBot4LevelThreeActionPerformed(evt);
             }
         });
 
-        jCheckBox25.setText("Defensive ?");
-        jCheckBox25.addActionListener(new java.awt.event.ActionListener() {
+        chkBot4LevelOne.setText("Level One Climb?");
+        chkBot4LevelOne.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox25ActionPerformed(evt);
+                chkBot4LevelOneActionPerformed(evt);
             }
         });
 
-        jCheckBox26.setText("Level Two Climb?");
-        jCheckBox26.addActionListener(new java.awt.event.ActionListener() {
+        chkBot5Defensive.setText("Defensive ?");
+        chkBot5Defensive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox26ActionPerformed(evt);
+                chkBot5DefensiveActionPerformed(evt);
             }
         });
 
-        jCheckBox27.setText("Broken?");
-
-        jCheckBox28.setText("Penalized?");
-
-        jCheckBox29.setText("Level Three Climb?!?");
-        jCheckBox29.addActionListener(new java.awt.event.ActionListener() {
+        chkBot5LevelTwo.setText("Level Two Climb?");
+        chkBot5LevelTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox29ActionPerformed(evt);
+                chkBot5LevelTwoActionPerformed(evt);
             }
         });
 
-        jCheckBox30.setText("Level One Climb?");
-        jCheckBox30.addActionListener(new java.awt.event.ActionListener() {
+        chkBot5Broken.setText("Broken?");
+
+        chkBot5Penalized.setText("Penalized?");
+
+        chkBot5LevelThree.setText("Level Three Climb?!?");
+        chkBot5LevelThree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox30ActionPerformed(evt);
+                chkBot5LevelThreeActionPerformed(evt);
             }
         });
 
-        jCheckBox31.setText("Defensive ?");
-        jCheckBox31.addActionListener(new java.awt.event.ActionListener() {
+        chkBot5LevelOne.setText("Level One Climb?");
+        chkBot5LevelOne.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox31ActionPerformed(evt);
+                chkBot5LevelOneActionPerformed(evt);
             }
         });
 
-        jCheckBox32.setText("Level Two Climb?");
-        jCheckBox32.addActionListener(new java.awt.event.ActionListener() {
+        chkBot6Defensive.setText("Defensive ?");
+        chkBot6Defensive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox32ActionPerformed(evt);
+                chkBot6DefensiveActionPerformed(evt);
             }
         });
 
-        jCheckBox33.setText("Broken?");
-
-        jCheckBox34.setText("Penalized?");
-
-        jCheckBox35.setText("Level Three Climb?!?");
-        jCheckBox35.addActionListener(new java.awt.event.ActionListener() {
+        chkBot6LevelTwo.setText("Level Two Climb?");
+        chkBot6LevelTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox35ActionPerformed(evt);
+                chkBot6LevelTwoActionPerformed(evt);
             }
         });
 
-        jCheckBox36.setText("Level One Climb?");
-        jCheckBox36.addActionListener(new java.awt.event.ActionListener() {
+        chkBot6Broken.setText("Broken?");
+
+        chkBot6Penalized.setText("Penalized?");
+
+        chkBot6LevelThree.setText("Level Three Climb?!?");
+        chkBot6LevelThree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox36ActionPerformed(evt);
+                chkBot6LevelThreeActionPerformed(evt);
+            }
+        });
+
+        chkBot6LevelOne.setText("Level One Climb?");
+        chkBot6LevelOne.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkBot6LevelOneActionPerformed(evt);
             }
         });
 
@@ -338,58 +347,58 @@ public class Form extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
+                    .addComponent(chkBot1Defensive)
                     .addComponent(jLabel2)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox7))
-                .addGap(60, 60, 60)
+                    .addComponent(chkBot1Broken)
+                    .addComponent(chkBot1Penalized)
+                    .addComponent(chkBot1LevelOne)
+                    .addComponent(chkBot1LevelTwo)
+                    .addComponent(chkBot1LevelThree))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox9)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox8)
-                    .addComponent(jCheckBox12)
-                    .addComponent(jCheckBox10)
-                    .addComponent(jCheckBox11)
+                    .addComponent(chkBot2Defensive)
+                    .addComponent(chkBot2Broken)
+                    .addComponent(chkBot2Penalized)
+                    .addComponent(chkBot2LevelOne)
+                    .addComponent(chkBot2LevelTwo)
+                    .addComponent(chkBot2LevelThree)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addGap(97, 97, 97)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jCheckBox13)
-                    .addComponent(jCheckBox15)
-                    .addComponent(jCheckBox16)
-                    .addComponent(jCheckBox18)
-                    .addComponent(jCheckBox14)
-                    .addComponent(jCheckBox17))
-                .addGap(84, 84, 84)
+                    .addComponent(chkBot3Defensive)
+                    .addComponent(chkBot3Broken)
+                    .addComponent(chkBot3Penalized)
+                    .addComponent(chkBot3LevelOne)
+                    .addComponent(chkBot3LevelTwo)
+                    .addComponent(chkBot3LevelThree))
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox19)
-                    .addComponent(jCheckBox21)
-                    .addComponent(jCheckBox22)
-                    .addComponent(jCheckBox24)
-                    .addComponent(jCheckBox20)
-                    .addComponent(jCheckBox23)
+                    .addComponent(chkBot4Defensive)
+                    .addComponent(chkBot4Broken)
+                    .addComponent(chkBot4Penalized)
+                    .addComponent(chkBot4LevelOne)
+                    .addComponent(chkBot4LevelTwo)
+                    .addComponent(chkBot4LevelThree)
                     .addComponent(jLabel4))
-                .addGap(38, 38, 38)
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(jCheckBox25)
-                    .addComponent(jCheckBox27)
-                    .addComponent(jCheckBox28)
-                    .addComponent(jCheckBox30)
-                    .addComponent(jCheckBox26)
-                    .addComponent(jCheckBox29))
+                    .addComponent(chkBot5Defensive)
+                    .addComponent(chkBot5Broken)
+                    .addComponent(chkBot5Penalized)
+                    .addComponent(chkBot5LevelOne)
+                    .addComponent(chkBot5LevelTwo)
+                    .addComponent(chkBot5LevelThree))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(jCheckBox31)
-                    .addComponent(jCheckBox33)
-                    .addComponent(jCheckBox34)
-                    .addComponent(jCheckBox36)
-                    .addComponent(jCheckBox32)
-                    .addComponent(jCheckBox35))
+                    .addComponent(chkBot6Defensive)
+                    .addComponent(chkBot6Broken)
+                    .addComponent(chkBot6Penalized)
+                    .addComponent(chkBot6LevelOne)
+                    .addComponent(chkBot6LevelTwo)
+                    .addComponent(chkBot6LevelThree))
                 .addGap(39, 39, 39))
             .addGroup(layout.createSequentialGroup()
                 .addGap(338, 338, 338)
@@ -412,77 +421,77 @@ public class Form extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox1)
+                        .addComponent(chkBot1Defensive)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox2)
+                        .addComponent(chkBot1Penalized)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox3)
+                        .addComponent(chkBot1Broken)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox5)
+                        .addComponent(chkBot1LevelOne)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox6)
+                        .addComponent(chkBot1LevelTwo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox7))
+                        .addComponent(chkBot1LevelThree))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox9)
+                        .addComponent(chkBot2Defensive)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox8)
+                        .addComponent(chkBot2Penalized)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox4)
+                        .addComponent(chkBot2Broken)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox12)
+                        .addComponent(chkBot2LevelOne)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox10)
+                        .addComponent(chkBot2LevelTwo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox11))
+                        .addComponent(chkBot2LevelThree))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox13)
+                        .addComponent(chkBot3Defensive)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox16)
+                        .addComponent(chkBot3Penalized)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox15)
+                        .addComponent(chkBot3Broken)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox18)
+                        .addComponent(chkBot3LevelOne)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox14)
+                        .addComponent(chkBot3LevelTwo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox17))
+                        .addComponent(chkBot3LevelThree))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox19)
+                        .addComponent(chkBot4Defensive)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox22)
+                        .addComponent(chkBot4Penalized)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox21)
+                        .addComponent(chkBot4Broken)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox24)
+                        .addComponent(chkBot4LevelOne)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox20)
+                        .addComponent(chkBot4LevelTwo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox23))
+                        .addComponent(chkBot4LevelThree))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox31)
+                        .addComponent(chkBot6Defensive)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox34)
+                        .addComponent(chkBot6Penalized)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox33)
+                        .addComponent(chkBot6Broken)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox36)
+                        .addComponent(chkBot6LevelOne)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox32)
+                        .addComponent(chkBot6LevelTwo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox35))
+                        .addComponent(chkBot6LevelThree))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox25)
+                        .addComponent(chkBot5Defensive)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox28)
+                        .addComponent(chkBot5Penalized)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox27)
+                        .addComponent(chkBot5Broken)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox30)
+                        .addComponent(chkBot5LevelOne)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox26)
+                        .addComponent(chkBot5LevelTwo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox29)))
+                        .addComponent(chkBot5LevelThree)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
                 .addComponent(lbAutonomous)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -502,101 +511,109 @@ public class Form extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void chkBot1DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot1DefensiveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_chkBot1DefensiveActionPerformed
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void chkBot1LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot1LevelOneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_chkBot1LevelOneActionPerformed
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+    private void chkBot1LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot1LevelTwoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+    }//GEN-LAST:event_chkBot1LevelTwoActionPerformed
 
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+    private void chkBot1LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot1LevelThreeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
+    }//GEN-LAST:event_chkBot1LevelThreeActionPerformed
 
-    private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
+    private void chkBot2DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot2DefensiveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox9ActionPerformed
+    }//GEN-LAST:event_chkBot2DefensiveActionPerformed
 
-    private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
+    private void chkBot2LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot2LevelTwoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox10ActionPerformed
+    }//GEN-LAST:event_chkBot2LevelTwoActionPerformed
 
-    private void jCheckBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox11ActionPerformed
+    private void chkBot2LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot2LevelThreeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox11ActionPerformed
+    }//GEN-LAST:event_chkBot2LevelThreeActionPerformed
 
-    private void jCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox12ActionPerformed
+    private void chkBot2LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot2LevelOneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox12ActionPerformed
+    }//GEN-LAST:event_chkBot2LevelOneActionPerformed
 
-    private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
+    private void chkBot3DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot3DefensiveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox13ActionPerformed
+    }//GEN-LAST:event_chkBot3DefensiveActionPerformed
 
-    private void jCheckBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox14ActionPerformed
+    private void chkBot3LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot3LevelTwoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox14ActionPerformed
+    }//GEN-LAST:event_chkBot3LevelTwoActionPerformed
 
-    private void jCheckBox17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox17ActionPerformed
+    private void chkBot3LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot3LevelThreeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox17ActionPerformed
+    }//GEN-LAST:event_chkBot3LevelThreeActionPerformed
 
-    private void jCheckBox18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox18ActionPerformed
+    private void chkBot3LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot3LevelOneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox18ActionPerformed
+    }//GEN-LAST:event_chkBot3LevelOneActionPerformed
 
-    private void jCheckBox19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox19ActionPerformed
+    private void chkBot4DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot4DefensiveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox19ActionPerformed
+    }//GEN-LAST:event_chkBot4DefensiveActionPerformed
 
-    private void jCheckBox20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox20ActionPerformed
+    private void chkBot4LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot4LevelTwoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox20ActionPerformed
+    }//GEN-LAST:event_chkBot4LevelTwoActionPerformed
 
-    private void jCheckBox23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox23ActionPerformed
+    private void chkBot4LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot4LevelThreeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox23ActionPerformed
+    }//GEN-LAST:event_chkBot4LevelThreeActionPerformed
 
-    private void jCheckBox24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox24ActionPerformed
+    private void chkBot4LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot4LevelOneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox24ActionPerformed
+    }//GEN-LAST:event_chkBot4LevelOneActionPerformed
 
-    private void jCheckBox25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox25ActionPerformed
+    private void chkBot5DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot5DefensiveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox25ActionPerformed
+    }//GEN-LAST:event_chkBot5DefensiveActionPerformed
 
-    private void jCheckBox26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox26ActionPerformed
+    private void chkBot5LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot5LevelTwoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox26ActionPerformed
+    }//GEN-LAST:event_chkBot5LevelTwoActionPerformed
 
-    private void jCheckBox29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox29ActionPerformed
+    private void chkBot5LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot5LevelThreeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox29ActionPerformed
+    }//GEN-LAST:event_chkBot5LevelThreeActionPerformed
 
-    private void jCheckBox30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox30ActionPerformed
+    private void chkBot5LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot5LevelOneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox30ActionPerformed
+    }//GEN-LAST:event_chkBot5LevelOneActionPerformed
 
-    private void jCheckBox31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox31ActionPerformed
+    private void chkBot6DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot6DefensiveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox31ActionPerformed
+    }//GEN-LAST:event_chkBot6DefensiveActionPerformed
 
-    private void jCheckBox32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox32ActionPerformed
+    private void chkBot6LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot6LevelTwoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox32ActionPerformed
+    }//GEN-LAST:event_chkBot6LevelTwoActionPerformed
 
-    private void jCheckBox35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox35ActionPerformed
+    private void chkBot6LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot6LevelThreeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox35ActionPerformed
+    }//GEN-LAST:event_chkBot6LevelThreeActionPerformed
 
-    private void jCheckBox36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox36ActionPerformed
+    private void chkBot6LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot6LevelOneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox36ActionPerformed
+    }//GEN-LAST:event_chkBot6LevelOneActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void chkBot4PenalizedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot4PenalizedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkBot4PenalizedActionPerformed
 
     /**
      * @param args the command line arguments
@@ -637,43 +654,43 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.JCheckBox chkBot1Broken;
+    private javax.swing.JCheckBox chkBot1Defensive;
+    private javax.swing.JCheckBox chkBot1LevelOne;
+    private javax.swing.JCheckBox chkBot1LevelThree;
+    private javax.swing.JCheckBox chkBot1LevelTwo;
+    private javax.swing.JCheckBox chkBot1Penalized;
+    private javax.swing.JCheckBox chkBot2Broken;
+    private javax.swing.JCheckBox chkBot2Defensive;
+    private javax.swing.JCheckBox chkBot2LevelOne;
+    private javax.swing.JCheckBox chkBot2LevelThree;
+    private javax.swing.JCheckBox chkBot2LevelTwo;
+    private javax.swing.JCheckBox chkBot2Penalized;
+    private javax.swing.JCheckBox chkBot3Broken;
+    private javax.swing.JCheckBox chkBot3Defensive;
+    private javax.swing.JCheckBox chkBot3LevelOne;
+    private javax.swing.JCheckBox chkBot3LevelThree;
+    private javax.swing.JCheckBox chkBot3LevelTwo;
+    private javax.swing.JCheckBox chkBot3Penalized;
+    private javax.swing.JCheckBox chkBot4Broken;
+    private javax.swing.JCheckBox chkBot4Defensive;
+    private javax.swing.JCheckBox chkBot4LevelOne;
+    private javax.swing.JCheckBox chkBot4LevelThree;
+    private javax.swing.JCheckBox chkBot4LevelTwo;
+    private javax.swing.JCheckBox chkBot4Penalized;
+    private javax.swing.JCheckBox chkBot5Broken;
+    private javax.swing.JCheckBox chkBot5Defensive;
+    private javax.swing.JCheckBox chkBot5LevelOne;
+    private javax.swing.JCheckBox chkBot5LevelThree;
+    private javax.swing.JCheckBox chkBot5LevelTwo;
+    private javax.swing.JCheckBox chkBot5Penalized;
+    private javax.swing.JCheckBox chkBot6Broken;
+    private javax.swing.JCheckBox chkBot6Defensive;
+    private javax.swing.JCheckBox chkBot6LevelOne;
+    private javax.swing.JCheckBox chkBot6LevelThree;
+    private javax.swing.JCheckBox chkBot6LevelTwo;
+    private javax.swing.JCheckBox chkBot6Penalized;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox11;
-    private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox13;
-    private javax.swing.JCheckBox jCheckBox14;
-    private javax.swing.JCheckBox jCheckBox15;
-    private javax.swing.JCheckBox jCheckBox16;
-    private javax.swing.JCheckBox jCheckBox17;
-    private javax.swing.JCheckBox jCheckBox18;
-    private javax.swing.JCheckBox jCheckBox19;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox20;
-    private javax.swing.JCheckBox jCheckBox21;
-    private javax.swing.JCheckBox jCheckBox22;
-    private javax.swing.JCheckBox jCheckBox23;
-    private javax.swing.JCheckBox jCheckBox24;
-    private javax.swing.JCheckBox jCheckBox25;
-    private javax.swing.JCheckBox jCheckBox26;
-    private javax.swing.JCheckBox jCheckBox27;
-    private javax.swing.JCheckBox jCheckBox28;
-    private javax.swing.JCheckBox jCheckBox29;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox30;
-    private javax.swing.JCheckBox jCheckBox31;
-    private javax.swing.JCheckBox jCheckBox32;
-    private javax.swing.JCheckBox jCheckBox33;
-    private javax.swing.JCheckBox jCheckBox34;
-    private javax.swing.JCheckBox jCheckBox35;
-    private javax.swing.JCheckBox jCheckBox36;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
