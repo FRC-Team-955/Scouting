@@ -3,18 +3,31 @@
  * and open the template in the editor.
  */
 package scouting;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author Fauzi
  */
-public class Form extends javax.swing.JFrame {
-
+public class Form extends javax.swing.JFrame 
+{
+    RobotData m_bot1;
+    RobotData m_bot2;
+    RobotData m_bot3;
+    RobotData m_bot4;
+    RobotData m_bot5;
+    RobotData m_bot6;
     /**
      * Creates new form Form
      */
-    public Form() {
+    public Form() 
+    {
         initComponents();
+        m_bot1 = new RobotData();
+        m_bot2 = new RobotData();
+        m_bot3 = new RobotData();
+        m_bot4 = new RobotData();
+        m_bot5 = new RobotData();
+        m_bot6 = new RobotData();        
     }
 
     /**
@@ -30,6 +43,7 @@ public class Form extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
+        jDialog1 = new javax.swing.JDialog();
         lbTitle = new javax.swing.JLabel();
         lbAutonomous = new javax.swing.JLabel();
         lbTeleop = new javax.swing.JLabel();
@@ -37,7 +51,7 @@ public class Form extends javax.swing.JFrame {
         txTeleop = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         txAuto = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        btSubmit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -81,6 +95,17 @@ public class Form extends javax.swing.JFrame {
         chkBot6LevelThree = new javax.swing.JCheckBox();
         chkBot6LevelOne = new javax.swing.JCheckBox();
 
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbTitle.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
@@ -100,10 +125,10 @@ public class Form extends javax.swing.JFrame {
         txAuto.setRows(5);
         jScrollPane2.setViewportView(txAuto);
 
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btSubmit.setText("Submit");
+        btSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btSubmitActionPerformed(evt);
             }
         });
 
@@ -342,7 +367,7 @@ public class Form extends javax.swing.JFrame {
                                     .addComponent(jScrollPane1)
                                     .addComponent(jScrollPane2))
                                 .addGap(134, 134, 134)))
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
@@ -497,7 +522,7 @@ public class Form extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -513,6 +538,7 @@ public class Form extends javax.swing.JFrame {
 
     private void chkBot1DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot1DefensiveActionPerformed
         // TODO add your handling code here:
+        m_bot1.setDefensive(chkBot1Defensive.isSelected());
     }//GEN-LAST:event_chkBot1DefensiveActionPerformed
 
     private void chkBot1LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot1LevelOneActionPerformed
@@ -607,9 +633,19 @@ public class Form extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_chkBot6LevelOneActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSubmitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        Object[] options = {"Yes I did!", "Nope, I did not :("};
+        int n = JOptionPane.showOptionDialog(this,
+                                            "Are you sure you entered the data right?",
+                                            "Just Making Sure!!!",
+                                            JOptionPane.YES_NO_CANCEL_OPTION,
+                                            JOptionPane.QUESTION_MESSAGE,
+                                            null,
+                                            options,
+                                            options[1]);
+        
+    }//GEN-LAST:event_btSubmitActionPerformed
 
     private void chkBot4PenalizedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot4PenalizedActionPerformed
         // TODO add your handling code here:
@@ -650,6 +686,7 @@ public class Form extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btSubmit;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -690,7 +727,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkBot6LevelThree;
     private javax.swing.JCheckBox chkBot6LevelTwo;
     private javax.swing.JCheckBox chkBot6Penalized;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
