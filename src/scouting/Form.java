@@ -44,39 +44,21 @@ public class Form extends javax.swing.JFrame
         txTeleop.setText("");
         chkBot1Broken.setSelected(false);
         chkBot1Defensive.setSelected(false);
-        chkBot1LevelOne.setSelected(false);
-        chkBot1LevelThree.setSelected(false);
-        chkBot1LevelTwo.setSelected(false);
         chkBot1Penalized.setSelected(false);
         chkBot2Broken.setSelected(false);
         chkBot2Defensive.setSelected(false);
-        chkBot2LevelOne.setSelected(false);
-        chkBot2LevelThree.setSelected(false);
-        chkBot2LevelTwo.setSelected(false);
         chkBot2Penalized.setSelected(false);
         chkBot3Broken.setSelected(false);
         chkBot3Defensive.setSelected(false);
-        chkBot3LevelOne.setSelected(false);
-        chkBot3LevelThree.setSelected(false);
-        chkBot3LevelTwo.setSelected(false);
         chkBot3Penalized.setSelected(false);
         chkBot4Broken.setSelected(false);
         chkBot4Defensive.setSelected(false);
-        chkBot4LevelOne.setSelected(false);
-        chkBot4LevelThree.setSelected(false);
-        chkBot4LevelTwo.setSelected(false);
         chkBot4Penalized.setSelected(false);
         chkBot5Broken.setSelected(false);
         chkBot5Defensive.setSelected(false);
-        chkBot5LevelOne.setSelected(false);
-        chkBot5LevelThree.setSelected(false);
-        chkBot5LevelTwo.setSelected(false);
         chkBot5Penalized.setSelected(false);
         chkBot6Broken.setSelected(false);
         chkBot6Defensive.setSelected(false);
-        chkBot6LevelOne.setSelected(false);
-        chkBot6LevelThree.setSelected(false);
-        chkBot6LevelTwo.setSelected(false);
         chkBot6Penalized.setSelected(false);
     }
     
@@ -107,48 +89,38 @@ public class Form extends javax.swing.JFrame
         jScrollPane2 = new javax.swing.JScrollPane();
         txAuto = new javax.swing.JTextArea();
         btSubmit = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lbBot2 = new javax.swing.JLabel();
+        lbBot1 = new javax.swing.JLabel();
+        lbBot3 = new javax.swing.JLabel();
+        lbBot4 = new javax.swing.JLabel();
+        lbBot6 = new javax.swing.JLabel();
+        lbBot5 = new javax.swing.JLabel();
         chkBot1Defensive = new javax.swing.JCheckBox();
         chkBot1Penalized = new javax.swing.JCheckBox();
         chkBot1Broken = new javax.swing.JCheckBox();
-        chkBot1LevelOne = new javax.swing.JCheckBox();
-        chkBot1LevelTwo = new javax.swing.JCheckBox();
-        chkBot1LevelThree = new javax.swing.JCheckBox();
         chkBot2Broken = new javax.swing.JCheckBox();
         chkBot2Penalized = new javax.swing.JCheckBox();
         chkBot2Defensive = new javax.swing.JCheckBox();
-        chkBot2LevelTwo = new javax.swing.JCheckBox();
-        chkBot2LevelThree = new javax.swing.JCheckBox();
-        chkBot2LevelOne = new javax.swing.JCheckBox();
         chkBot3Defensive = new javax.swing.JCheckBox();
-        chkBot3LevelTwo = new javax.swing.JCheckBox();
         chkBot3Broken = new javax.swing.JCheckBox();
         chkBot3Penalized = new javax.swing.JCheckBox();
-        chkBot3LevelThree = new javax.swing.JCheckBox();
-        chkBot3LevelOne = new javax.swing.JCheckBox();
         chkBot4Defensive = new javax.swing.JCheckBox();
-        chkBot4LevelTwo = new javax.swing.JCheckBox();
         chkBot4Broken = new javax.swing.JCheckBox();
         chkBot4Penalized = new javax.swing.JCheckBox();
-        chkBot4LevelThree = new javax.swing.JCheckBox();
-        chkBot4LevelOne = new javax.swing.JCheckBox();
         chkBot5Defensive = new javax.swing.JCheckBox();
-        chkBot5LevelTwo = new javax.swing.JCheckBox();
         chkBot5Broken = new javax.swing.JCheckBox();
         chkBot5Penalized = new javax.swing.JCheckBox();
-        chkBot5LevelThree = new javax.swing.JCheckBox();
-        chkBot5LevelOne = new javax.swing.JCheckBox();
         chkBot6Defensive = new javax.swing.JCheckBox();
-        chkBot6LevelTwo = new javax.swing.JCheckBox();
         chkBot6Broken = new javax.swing.JCheckBox();
         chkBot6Penalized = new javax.swing.JCheckBox();
-        chkBot6LevelThree = new javax.swing.JCheckBox();
-        chkBot6LevelOne = new javax.swing.JCheckBox();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel1 = new javax.swing.JLabel();
+        jSlider2 = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        jSlider3 = new javax.swing.JSlider();
+        jLabel3 = new javax.swing.JLabel();
+        jSlider4 = new javax.swing.JSlider();
+        jLabel4 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -170,7 +142,7 @@ public class Form extends javax.swing.JFrame
         lbAutonomous.setText("Autonomous");
 
         lbTeleop.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbTeleop.setText("Teleoperiodic");
+        lbTeleop.setText("Teleop");
 
         txTeleop.setColumns(20);
         txTeleop.setRows(5);
@@ -187,23 +159,23 @@ public class Form extends javax.swing.JFrame
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Bot 2");
+        lbBot2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbBot2.setText("Bot 2");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Bot 1");
+        lbBot1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbBot1.setText("Bot 1");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Bot 3");
+        lbBot3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbBot3.setText("Bot 3");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Bot 4");
+        lbBot4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbBot4.setText("Bot 4");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("Bot 6");
+        lbBot6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbBot6.setText("Bot 6");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Bot 5");
+        lbBot5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbBot5.setText("Bot 5");
 
         chkBot1Defensive.setText("Defensive ?");
         chkBot1Defensive.addActionListener(new java.awt.event.ActionListener() {
@@ -216,27 +188,6 @@ public class Form extends javax.swing.JFrame
 
         chkBot1Broken.setText("Broken?");
 
-        chkBot1LevelOne.setText("Level One Climb?");
-        chkBot1LevelOne.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot1LevelOneActionPerformed(evt);
-            }
-        });
-
-        chkBot1LevelTwo.setText("Level Two Climb?");
-        chkBot1LevelTwo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot1LevelTwoActionPerformed(evt);
-            }
-        });
-
-        chkBot1LevelThree.setText("Level Three Climb?!?");
-        chkBot1LevelThree.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot1LevelThreeActionPerformed(evt);
-            }
-        });
-
         chkBot2Broken.setText("Broken?");
 
         chkBot2Penalized.setText("Penalized?");
@@ -248,27 +199,6 @@ public class Form extends javax.swing.JFrame
             }
         });
 
-        chkBot2LevelTwo.setText("Level Two Climb?");
-        chkBot2LevelTwo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot2LevelTwoActionPerformed(evt);
-            }
-        });
-
-        chkBot2LevelThree.setText("Level Three Climb?!?");
-        chkBot2LevelThree.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot2LevelThreeActionPerformed(evt);
-            }
-        });
-
-        chkBot2LevelOne.setText("Level One Climb?");
-        chkBot2LevelOne.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot2LevelOneActionPerformed(evt);
-            }
-        });
-
         chkBot3Defensive.setText("Defensive ?");
         chkBot3Defensive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,42 +206,14 @@ public class Form extends javax.swing.JFrame
             }
         });
 
-        chkBot3LevelTwo.setText("Level Two Climb?");
-        chkBot3LevelTwo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot3LevelTwoActionPerformed(evt);
-            }
-        });
-
         chkBot3Broken.setText("Broken?");
 
         chkBot3Penalized.setText("Penalized?");
-
-        chkBot3LevelThree.setText("Level Three Climb?!?");
-        chkBot3LevelThree.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot3LevelThreeActionPerformed(evt);
-            }
-        });
-
-        chkBot3LevelOne.setText("Level One Climb?");
-        chkBot3LevelOne.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot3LevelOneActionPerformed(evt);
-            }
-        });
 
         chkBot4Defensive.setText("Defensive ?");
         chkBot4Defensive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkBot4DefensiveActionPerformed(evt);
-            }
-        });
-
-        chkBot4LevelTwo.setText("Level Two Climb?");
-        chkBot4LevelTwo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot4LevelTwoActionPerformed(evt);
             }
         });
 
@@ -324,20 +226,6 @@ public class Form extends javax.swing.JFrame
             }
         });
 
-        chkBot4LevelThree.setText("Level Three Climb?!?");
-        chkBot4LevelThree.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot4LevelThreeActionPerformed(evt);
-            }
-        });
-
-        chkBot4LevelOne.setText("Level One Climb?");
-        chkBot4LevelOne.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot4LevelOneActionPerformed(evt);
-            }
-        });
-
         chkBot5Defensive.setText("Defensive ?");
         chkBot5Defensive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,30 +233,9 @@ public class Form extends javax.swing.JFrame
             }
         });
 
-        chkBot5LevelTwo.setText("Level Two Climb?");
-        chkBot5LevelTwo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot5LevelTwoActionPerformed(evt);
-            }
-        });
-
         chkBot5Broken.setText("Broken?");
 
         chkBot5Penalized.setText("Penalized?");
-
-        chkBot5LevelThree.setText("Level Three Climb?!?");
-        chkBot5LevelThree.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot5LevelThreeActionPerformed(evt);
-            }
-        });
-
-        chkBot5LevelOne.setText("Level One Climb?");
-        chkBot5LevelOne.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot5LevelOneActionPerformed(evt);
-            }
-        });
 
         chkBot6Defensive.setText("Defensive ?");
         chkBot6Defensive.addActionListener(new java.awt.event.ActionListener() {
@@ -377,30 +244,41 @@ public class Form extends javax.swing.JFrame
             }
         });
 
-        chkBot6LevelTwo.setText("Level Two Climb?");
-        chkBot6LevelTwo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot6LevelTwoActionPerformed(evt);
-            }
-        });
-
         chkBot6Broken.setText("Broken?");
 
         chkBot6Penalized.setText("Penalized?");
 
-        chkBot6LevelThree.setText("Level Three Climb?!?");
-        chkBot6LevelThree.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot6LevelThreeActionPerformed(evt);
-            }
-        });
+        jSlider1.setMajorTickSpacing(1);
+        jSlider1.setMaximum(3);
+        jSlider1.setPaintLabels(true);
+        jSlider1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        chkBot6LevelOne.setText("Level One Climb?");
-        chkBot6LevelOne.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkBot6LevelOneActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Climb Level");
+
+        jSlider2.setMajorTickSpacing(1);
+        jSlider2.setMaximum(3);
+        jSlider2.setPaintLabels(true);
+        jSlider2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Climb Level");
+
+        jSlider3.setMajorTickSpacing(1);
+        jSlider3.setMaximum(3);
+        jSlider3.setPaintLabels(true);
+        jSlider3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Climb Level");
+
+        jSlider4.setMajorTickSpacing(1);
+        jSlider4.setMaximum(3);
+        jSlider4.setPaintLabels(true);
+        jSlider4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("Climb Level");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -409,9 +287,6 @@ public class Form extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbAutonomous, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -423,156 +298,157 @@ public class Form extends javax.swing.JFrame
                                     .addComponent(jScrollPane2))
                                 .addGap(134, 134, 134)))
                         .addComponent(btSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chkBot1Defensive)
-                    .addComponent(jLabel2)
-                    .addComponent(chkBot1Broken)
-                    .addComponent(chkBot1Penalized)
-                    .addComponent(chkBot1LevelOne)
-                    .addComponent(chkBot1LevelTwo)
-                    .addComponent(chkBot1LevelThree))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chkBot2Defensive)
-                    .addComponent(chkBot2Broken)
-                    .addComponent(chkBot2Penalized)
-                    .addComponent(chkBot2LevelOne)
-                    .addComponent(chkBot2LevelTwo)
-                    .addComponent(chkBot2LevelThree)
-                    .addComponent(jLabel1))
-                .addGap(97, 97, 97)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(chkBot3Defensive)
-                    .addComponent(chkBot3Broken)
-                    .addComponent(chkBot3Penalized)
-                    .addComponent(chkBot3LevelOne)
-                    .addComponent(chkBot3LevelTwo)
-                    .addComponent(chkBot3LevelThree))
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chkBot4Defensive)
-                    .addComponent(chkBot4Broken)
-                    .addComponent(chkBot4Penalized)
-                    .addComponent(chkBot4LevelOne)
-                    .addComponent(chkBot4LevelTwo)
-                    .addComponent(chkBot4LevelThree)
-                    .addComponent(jLabel4))
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(chkBot5Defensive)
-                    .addComponent(chkBot5Broken)
-                    .addComponent(chkBot5Penalized)
-                    .addComponent(chkBot5LevelOne)
-                    .addComponent(chkBot5LevelTwo)
-                    .addComponent(chkBot5LevelThree))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(chkBot6Defensive)
-                    .addComponent(chkBot6Broken)
-                    .addComponent(chkBot6Penalized)
-                    .addComponent(chkBot6LevelOne)
-                    .addComponent(chkBot6LevelTwo)
-                    .addComponent(chkBot6LevelThree))
-                .addGap(39, 39, 39))
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbAutonomous, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(338, 338, 338)
                 .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(chkBot1Broken)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkBot1Defensive)
+                            .addComponent(lbBot1)
+                            .addComponent(chkBot1Penalized)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkBot2Defensive)
+                            .addComponent(chkBot2Broken)
+                            .addComponent(chkBot2Penalized)
+                            .addComponent(lbBot2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(59, 59, 59)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbBot3)
+                            .addComponent(chkBot3Defensive)
+                            .addComponent(chkBot3Broken)
+                            .addComponent(chkBot3Penalized)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(chkBot4Defensive)
+                                    .addComponent(chkBot4Broken)
+                                    .addComponent(chkBot4Penalized)
+                                    .addComponent(lbBot4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbBot5)
+                                    .addComponent(chkBot5Defensive)
+                                    .addComponent(chkBot5Broken)
+                                    .addComponent(chkBot5Penalized))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbBot6)
+                                    .addComponent(chkBot6Defensive)
+                                    .addComponent(chkBot6Broken)
+                                    .addComponent(chkBot6Penalized))
+                                .addGap(81, 81, 81))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSlider4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(chkBot1Defensive)
+                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbBot1)
+                            .addComponent(lbBot2)
+                            .addComponent(lbBot3)
+                            .addComponent(lbBot4)
+                            .addComponent(lbBot5)
+                            .addComponent(lbBot6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot1Penalized)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot1Broken)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot1LevelOne)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot1LevelTwo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot1LevelThree))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(chkBot1Defensive)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkBot1Penalized)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkBot1Broken))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(chkBot2Defensive)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkBot2Penalized)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkBot2Broken))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(chkBot3Defensive)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkBot3Penalized)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkBot3Broken))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(chkBot4Defensive)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkBot4Penalized)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(chkBot4Broken))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(chkBot6Defensive)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkBot6Penalized)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkBot6Broken))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(chkBot5Defensive)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkBot5Penalized)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkBot5Broken)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(11, 11, 11)
+                                            .addComponent(jLabel1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(11, 11, 11)
+                                            .addComponent(jLabel2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(chkBot2Defensive)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot2Penalized)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot2Broken)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot2LevelOne)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot2LevelTwo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot2LevelThree))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(chkBot3Defensive)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot3Penalized)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot3Broken)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot3LevelOne)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot3LevelTwo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot3LevelThree))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(chkBot4Defensive)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot4Penalized)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot4Broken)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot4LevelOne)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot4LevelTwo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot4LevelThree))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(chkBot6Defensive)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot6Penalized)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot6Broken)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot6LevelOne)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot6LevelTwo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot6LevelThree))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(chkBot5Defensive)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot5Penalized)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot5Broken)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot5LevelOne)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkBot5LevelTwo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkBot5LevelThree)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jSlider4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addComponent(lbAutonomous)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -582,7 +458,7 @@ public class Form extends javax.swing.JFrame
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbTeleop)
+                        .addComponent(lbTeleop, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -595,97 +471,25 @@ public class Form extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_chkBot1DefensiveActionPerformed
 
-    private void chkBot1LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot1LevelOneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot1LevelOneActionPerformed
-
-    private void chkBot1LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot1LevelTwoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot1LevelTwoActionPerformed
-
-    private void chkBot1LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot1LevelThreeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot1LevelThreeActionPerformed
-
     private void chkBot2DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot2DefensiveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkBot2DefensiveActionPerformed
-
-    private void chkBot2LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot2LevelTwoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot2LevelTwoActionPerformed
-
-    private void chkBot2LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot2LevelThreeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot2LevelThreeActionPerformed
-
-    private void chkBot2LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot2LevelOneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot2LevelOneActionPerformed
 
     private void chkBot3DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot3DefensiveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkBot3DefensiveActionPerformed
 
-    private void chkBot3LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot3LevelTwoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot3LevelTwoActionPerformed
-
-    private void chkBot3LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot3LevelThreeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot3LevelThreeActionPerformed
-
-    private void chkBot3LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot3LevelOneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot3LevelOneActionPerformed
-
     private void chkBot4DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot4DefensiveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkBot4DefensiveActionPerformed
-
-    private void chkBot4LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot4LevelTwoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot4LevelTwoActionPerformed
-
-    private void chkBot4LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot4LevelThreeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot4LevelThreeActionPerformed
-
-    private void chkBot4LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot4LevelOneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot4LevelOneActionPerformed
 
     private void chkBot5DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot5DefensiveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkBot5DefensiveActionPerformed
 
-    private void chkBot5LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot5LevelTwoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot5LevelTwoActionPerformed
-
-    private void chkBot5LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot5LevelThreeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot5LevelThreeActionPerformed
-
-    private void chkBot5LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot5LevelOneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot5LevelOneActionPerformed
-
     private void chkBot6DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot6DefensiveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkBot6DefensiveActionPerformed
-
-    private void chkBot6LevelTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot6LevelTwoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot6LevelTwoActionPerformed
-
-    private void chkBot6LevelThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot6LevelThreeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot6LevelThreeActionPerformed
-
-    private void chkBot6LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot6LevelOneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkBot6LevelOneActionPerformed
 
     private void btSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSubmitActionPerformed
         // TODO add your handling code here:
@@ -752,50 +556,40 @@ public class Form extends javax.swing.JFrame
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JCheckBox chkBot1Broken;
     private javax.swing.JCheckBox chkBot1Defensive;
-    private javax.swing.JCheckBox chkBot1LevelOne;
-    private javax.swing.JCheckBox chkBot1LevelThree;
-    private javax.swing.JCheckBox chkBot1LevelTwo;
     private javax.swing.JCheckBox chkBot1Penalized;
     private javax.swing.JCheckBox chkBot2Broken;
     private javax.swing.JCheckBox chkBot2Defensive;
-    private javax.swing.JCheckBox chkBot2LevelOne;
-    private javax.swing.JCheckBox chkBot2LevelThree;
-    private javax.swing.JCheckBox chkBot2LevelTwo;
     private javax.swing.JCheckBox chkBot2Penalized;
     private javax.swing.JCheckBox chkBot3Broken;
     private javax.swing.JCheckBox chkBot3Defensive;
-    private javax.swing.JCheckBox chkBot3LevelOne;
-    private javax.swing.JCheckBox chkBot3LevelThree;
-    private javax.swing.JCheckBox chkBot3LevelTwo;
     private javax.swing.JCheckBox chkBot3Penalized;
     private javax.swing.JCheckBox chkBot4Broken;
     private javax.swing.JCheckBox chkBot4Defensive;
-    private javax.swing.JCheckBox chkBot4LevelOne;
-    private javax.swing.JCheckBox chkBot4LevelThree;
-    private javax.swing.JCheckBox chkBot4LevelTwo;
     private javax.swing.JCheckBox chkBot4Penalized;
     private javax.swing.JCheckBox chkBot5Broken;
     private javax.swing.JCheckBox chkBot5Defensive;
-    private javax.swing.JCheckBox chkBot5LevelOne;
-    private javax.swing.JCheckBox chkBot5LevelThree;
-    private javax.swing.JCheckBox chkBot5LevelTwo;
     private javax.swing.JCheckBox chkBot5Penalized;
     private javax.swing.JCheckBox chkBot6Broken;
     private javax.swing.JCheckBox chkBot6Defensive;
-    private javax.swing.JCheckBox chkBot6LevelOne;
-    private javax.swing.JCheckBox chkBot6LevelThree;
-    private javax.swing.JCheckBox chkBot6LevelTwo;
     private javax.swing.JCheckBox chkBot6Penalized;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSlider jSlider1;
+    private javax.swing.JSlider jSlider2;
+    private javax.swing.JSlider jSlider3;
+    private javax.swing.JSlider jSlider4;
     private javax.swing.JLabel lbAutonomous;
+    private javax.swing.JLabel lbBot1;
+    private javax.swing.JLabel lbBot2;
+    private javax.swing.JLabel lbBot3;
+    private javax.swing.JLabel lbBot4;
+    private javax.swing.JLabel lbBot5;
+    private javax.swing.JLabel lbBot6;
     private javax.swing.JLabel lbTeleop;
     private javax.swing.JLabel lbTitle;
     private javax.swing.JTextArea txAuto;
