@@ -10,15 +10,21 @@ package scouting;
  */
 public class RobotData 
 {
+    private int m_iDataLengthBoolean = 3;
     private boolean m_bDefensive = false;
     private boolean m_bPenalized = false;
     private boolean m_bBroken = false;
+    private int m_iDataLengthInt = 8;
+    private int m_iDataArray[] = new int[m_iDataLengthInt];
     private int m_iHighGoalAuto = 0;
-    private int m_iMiddleGoalAuto = 0;
-    private int m_iLowGoalAuto = 0;
-    private int m_iDumpGoalAuto = 0;
-    private int m_iClimbLevel = 0;
-    private String m_sFeedTime = "0";
+    private int m_iMiddleGoalAuto = 1;
+    private int m_iLowGoalAuto = 2;
+    private int m_iHighGoalTeleop = 3;
+    private int m_iMiddleGoalTeleop = 4;
+    private int m_iLowGoalTeleop = 5;
+    private int m_iPryamidGoal = 6;
+    private int m_iClimbLevel = 7;
+    private String m_sComments = "";
     
     public void setDefensive(boolean bVal)
     {
@@ -37,32 +43,47 @@ public class RobotData
     
     public void setHighGoalShotsAuto(int iShots)
     {
-        m_iHighGoalAuto = iShots;
+        m_iDataArray[m_iLowGoalAuto] = iShots;
     }
     
     public void setMiddleGoalShotsAuto(int iShots)
     {
-        m_iMiddleGoalAuto = iShots;
+        m_iDataArray[m_iMiddleGoalAuto] = iShots;
     }
     
     public void setLowGoalShotsAuto(int iShots)
     {
-        m_iLowGoalAuto = iShots;
+        m_iDataArray[m_iLowGoalAuto] = iShots;
     }
     
-    public void setDumpGoalShotsAuto(int iShots)
+    public void setHighGoalShotsTeleop(int iShots)
     {
-        m_iDumpGoalAuto = iShots;
+        m_iDataArray[m_iHighGoalTeleop] = iShots;
+    }
+    
+    public void setMiddleGoalShotsTeleop(int iShots)
+    {
+        m_iDataArray[m_iMiddleGoalTeleop] = iShots;
+    }
+    
+    public void setLowGoalShotsTeleop(int iShots)
+    {
+        m_iDataArray[m_iLowGoalTeleop] = iShots;
+    }
+    
+    public void setPryamidGoalShots(int iShots)
+    {
+        m_iDataArray[m_iPryamidGoal] = iShots;
     }
     
     public void setClimbLevel(int iLevel)
     {
-        m_iClimbLevel = iLevel;
+        m_iDataArray[m_iClimbLevel] = iLevel;
     }
     
-    public void setFeedTime(String sTime)
+    public void setComment(String sComment)
     {
-        m_sFeedTime = sTime;
+        m_sComments = sComment;
     }
     
     public boolean getDefensive()
@@ -82,32 +103,47 @@ public class RobotData
     
     public int getHighGoalShotsAuto()
     {
-        return m_iHighGoalAuto;
+        return m_iDataArray[m_iHighGoalAuto];
     }
     
     public int getMiddleGoalShotsAuto()
     {
-        return m_iMiddleGoalAuto;
+        return m_iDataArray[m_iMiddleGoalAuto];
     }
     
     public int getLowGoalShotsAuto()
     {
-        return m_iLowGoalAuto;
+        return m_iDataArray[m_iLowGoalAuto];
     }
     
-    public int getDumpGoalShotsAuto()
+    public int getHighGoalShotsTeleop()
     {
-        return m_iDumpGoalAuto;
+        return m_iDataArray[m_iHighGoalTeleop];
+    }
+    
+    public int getMiddleGoalShotsTeleop()
+    {
+        return m_iDataArray[m_iMiddleGoalTeleop];
+    }
+    
+    public int getLowGoalShotsTeleop()
+    {
+        return m_iDataArray[m_iLowGoalTeleop];
+    }
+    
+    public int getPryamidGoalShots()
+    {
+        return m_iDataArray[m_iPryamidGoal];
     }
     
     public int getClimbLevel()
     {
-        return m_iClimbLevel;
+        return m_iDataArray[m_iClimbLevel];
     }
     
-    public String getFeedTime()
+    public String getComment()
     {
-        return m_sFeedTime;
+        return m_sComments;
     }
     
     public void reset()
@@ -115,11 +151,10 @@ public class RobotData
         m_bDefensive = false;
         m_bPenalized = false;
         m_bBroken = false;
-        m_iHighGoalAuto = 0;
-        m_iMiddleGoalAuto = 0;
-        m_iLowGoalAuto = 0;
-        m_iDumpGoalAuto = 0;
-        m_iClimbLevel = 0;
-        m_sFeedTime = "";
+        
+        for(int index = 0; index < m_iDataLengthInt; index++)
+            m_iDataArray[index] = 0;
+            
+        m_sComments = "";
     }
 }

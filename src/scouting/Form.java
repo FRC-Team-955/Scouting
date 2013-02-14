@@ -18,12 +18,13 @@ public class Form extends javax.swing.JFrame
     RobotData m_bot5;
     RobotData m_bot6;
     
-    char m_cBot1Key[] = {'q', 'a', 'z'};
-    char m_cBot2Key[] = {'q', 'a', 'z'};
-    char m_cBot3Key[] = {'q', 'a', 'z'};
-    char m_cBot4Key[] = {'q', 'a', 'z'};
-    char m_cBot5Key[] = {'q', 'a', 'z'};
-    char m_cBot6Key[] = {'q', 'a', 'z'};
+    int m_iKeyLength = 4;
+    char m_cBot1Key[] = {'q', 'a', 'z', 'w'};
+    char m_cBot2Key[] = {'q', 'a', 'z', 'w'};
+    char m_cBot3Key[] = {'q', 'a', 'z', 'w'};
+    char m_cBot4Key[] = {'q', 'a', 'z', 'w'};
+    char m_cBot5Key[] = {'q', 'a', 'z', 'w'};
+    char m_cBot6Key[] = {'q', 'a', 'z', 'w'};
     
     /**
      * Creates new form Form
@@ -56,42 +57,42 @@ public class Form extends javax.swing.JFrame
         chkBot1Defensive.setSelected(false);
         chkBot1Penalized.setSelected(false);
         slBot1ClimbLevel.setValue(0);
-        txBot1FeedTime.setText("");
+        txBot1Comments.setText("");
         
         // Bot 2
         chkBot2Broken.setSelected(false);
         chkBot2Defensive.setSelected(false);
         chkBot2Penalized.setSelected(false);
         slBot2ClimbLevel.setValue(0);
-        txBot2FeedTime.setText("");
+        txBot2Comments.setText("");
         
         // Bot 3
         chkBot3Broken.setSelected(false);
         chkBot3Defensive.setSelected(false);
         chkBot3Penalized.setSelected(false);
         slBot3ClimbLevel.setValue(0);
-        txBot3FeedTime.setText("");
+        txBot3Comments.setText("");
         
         // Bot 4
         chkBot4Broken.setSelected(false);
         chkBot4Defensive.setSelected(false);
         chkBot4Penalized.setSelected(false);
         slBot4ClimbLevel.setValue(0);
-        txBot4FeedTime.setText("");
+        txBot4Comments.setText("");
         
         // Bot 5
         chkBot5Broken.setSelected(false);
         chkBot5Defensive.setSelected(false);
         chkBot5Penalized.setSelected(false);
         slBot5ClimbLevel.setValue(0);
-        txBot5FeedTime.setText("");
+        txBot5Comments.setText("");
         
         // Bot 6
         chkBot6Broken.setSelected(false);
         chkBot6Defensive.setSelected(false);
         chkBot6Penalized.setSelected(false);
         slBot6ClimbLevel.setValue(0);
-        txBot6FeedTime.setText("");
+        txBot6Comments.setText("");
     }
     
     public void submitData()
@@ -101,42 +102,252 @@ public class Form extends javax.swing.JFrame
         m_bot1.setDefensive(chkBot1Defensive.isSelected());
         m_bot1.setDefensive(chkBot1Penalized.isSelected());
         m_bot1.setClimbLevel(slBot1ClimbLevel.getValue());
-        m_bot1.setFeedTime(txBot1FeedTime.getText());
+        m_bot1.setComment(txBot1Comments.getText());
         
         // Bot 2
         m_bot2.setBroken(chkBot2Broken.isSelected());
         m_bot2.setDefensive(chkBot2Defensive.isSelected());
         m_bot2.setDefensive(chkBot2Penalized.isSelected());
         m_bot2.setClimbLevel(slBot2ClimbLevel.getValue());
-        m_bot2.setFeedTime(txBot2FeedTime.getText());
+        m_bot2.setComment(txBot2Comments.getText());
         
         // Bot 3
         m_bot3.setBroken(chkBot3Broken.isSelected());
         m_bot3.setDefensive(chkBot3Defensive.isSelected());
         m_bot3.setDefensive(chkBot3Penalized.isSelected());
         m_bot3.setClimbLevel(slBot3ClimbLevel.getValue());
-        m_bot3.setFeedTime(txBot3FeedTime.getText());
+        m_bot3.setComment(txBot3Comments.getText());
         
         // Bot 4
         m_bot4.setBroken(chkBot4Broken.isSelected());
         m_bot4.setDefensive(chkBot4Defensive.isSelected());
         m_bot4.setDefensive(chkBot4Penalized.isSelected());
         m_bot4.setClimbLevel(slBot4ClimbLevel.getValue());
-        m_bot4.setFeedTime(txBot4FeedTime.getText());
+        m_bot4.setComment(txBot4Comments.getText());
         
         // Bot 5
         m_bot5.setBroken(chkBot5Broken.isSelected());
         m_bot5.setDefensive(chkBot5Defensive.isSelected());
         m_bot5.setDefensive(chkBot5Penalized.isSelected());
         m_bot5.setClimbLevel(slBot5ClimbLevel.getValue());
-        m_bot5.setFeedTime(txBot5FeedTime.getText());
+        m_bot5.setComment(txBot5Comments.getText());
         
         // Bot 6
         m_bot6.setBroken(chkBot6Broken.isSelected());
         m_bot6.setDefensive(chkBot6Defensive.isSelected());
         m_bot6.setDefensive(chkBot6Penalized.isSelected());
         m_bot6.setClimbLevel(slBot6ClimbLevel.getValue());
-        m_bot6.setFeedTime(txBot6FeedTime.getText());
+        m_bot6.setComment(txBot6Comments.getText());
+        
+        String sData = txAuto.getText();
+        
+        // Autonomous
+        for(int keyIndex = 0; keyIndex < m_iKeyLength; keyIndex++)
+        {
+            for(int dataIndex = 0; dataIndex < sData.length(); dataIndex++)
+            {
+                // Bot 1
+                if(sData.charAt(dataIndex) == m_cBot1Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot1.setLowGoalShotsAuto(m_bot1.getLowGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot1.setMiddleGoalShotsAuto(m_bot1.getMiddleGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot1.setHighGoalShotsAuto(m_bot1.getHighGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot1.setPryamidGoalShots(m_bot1.getPryamidGoalShots() + 1);
+                }
+                
+                // Bot 2
+                else if(sData.charAt(dataIndex) == m_cBot2Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot2.setLowGoalShotsAuto(m_bot2.getLowGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot2.setMiddleGoalShotsAuto(m_bot2.getMiddleGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot2.setHighGoalShotsAuto(m_bot2.getHighGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot2.setPryamidGoalShots(m_bot2.getPryamidGoalShots() + 1);
+                }
+                
+                // Bot 3
+                else if(sData.charAt(dataIndex) == m_cBot3Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot3.setLowGoalShotsAuto(m_bot3.getLowGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot3.setMiddleGoalShotsAuto(m_bot3.getMiddleGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot3.setHighGoalShotsAuto(m_bot3.getHighGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot3.setPryamidGoalShots(m_bot3.getPryamidGoalShots() + 1);
+                }
+                
+                // Bot 4
+                else if(sData.charAt(dataIndex) == m_cBot4Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot4.setLowGoalShotsAuto(m_bot4.getLowGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot4.setMiddleGoalShotsAuto(m_bot4.getMiddleGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot4.setHighGoalShotsAuto(m_bot4.getHighGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot4.setPryamidGoalShots(m_bot4.getPryamidGoalShots() + 1);
+                }
+                
+                // Bot 5
+                else if(sData.charAt(dataIndex) == m_cBot5Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot5.setLowGoalShotsAuto(m_bot5.getLowGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot5.setMiddleGoalShotsAuto(m_bot5.getMiddleGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot5.setHighGoalShotsAuto(m_bot5.getHighGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot5.setPryamidGoalShots(m_bot5.getPryamidGoalShots() + 1);
+                }
+                
+                // Bot 6
+                else if(sData.charAt(dataIndex) == m_cBot6Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot6.setLowGoalShotsAuto(m_bot6.getLowGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot6.setMiddleGoalShotsAuto(m_bot6.getMiddleGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot6.setHighGoalShotsAuto(m_bot6.getHighGoalShotsAuto() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot6.setPryamidGoalShots(m_bot6.getPryamidGoalShots() + 1);
+                }
+            }
+        }
+        
+        sData = txTeleop.getText();
+        
+        // Teleop
+        for(int keyIndex = 0; keyIndex < m_iKeyLength; keyIndex++)
+        {
+            for(int dataIndex = 0; dataIndex < sData.length(); dataIndex++)
+            {
+                // Bot 1
+                if(sData.charAt(dataIndex) == m_cBot1Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot1.setLowGoalShotsTeleop(m_bot1.getLowGoalShotsTeleop()+ 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot1.setMiddleGoalShotsTeleop(m_bot1.getMiddleGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot1.setHighGoalShotsTeleop(m_bot1.getHighGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot1.setPryamidGoalShots(m_bot1.getPryamidGoalShots() + 1);
+                }
+                
+                // Bot 2
+                else if(sData.charAt(dataIndex) == m_cBot2Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot2.setLowGoalShotsTeleop(m_bot2.getLowGoalShotsTeleop()+ 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot2.setMiddleGoalShotsTeleop(m_bot2.getMiddleGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot2.setHighGoalShotsTeleop(m_bot2.getHighGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot2.setPryamidGoalShots(m_bot2.getPryamidGoalShots() + 1);
+                }
+                
+                // Bot 3
+                else if(sData.charAt(dataIndex) == m_cBot3Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot3.setLowGoalShotsTeleop(m_bot3.getLowGoalShotsTeleop()+ 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot3.setMiddleGoalShotsTeleop(m_bot3.getMiddleGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot3.setHighGoalShotsTeleop(m_bot3.getHighGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot3.setPryamidGoalShots(m_bot3.getPryamidGoalShots() + 1);
+                }
+                
+                // Bot 4
+                else if(sData.charAt(dataIndex) == m_cBot4Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot4.setLowGoalShotsTeleop(m_bot4.getLowGoalShotsTeleop()+ 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot4.setMiddleGoalShotsTeleop(m_bot4.getMiddleGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot4.setHighGoalShotsTeleop(m_bot4.getHighGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot4.setPryamidGoalShots(m_bot4.getPryamidGoalShots() + 1);
+                }
+                
+                // Bot 5
+                else if(sData.charAt(dataIndex) == m_cBot5Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot5.setLowGoalShotsTeleop(m_bot5.getLowGoalShotsTeleop()+ 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot5.setMiddleGoalShotsTeleop(m_bot5.getMiddleGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot5.setHighGoalShotsTeleop(m_bot5.getHighGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot5.setPryamidGoalShots(m_bot5.getPryamidGoalShots() + 1);
+                }
+                
+                // Bot 6
+                else if(sData.charAt(dataIndex) == m_cBot6Key[keyIndex])
+                {
+                    if(keyIndex == 0)
+                        m_bot6.setLowGoalShotsTeleop(m_bot6.getLowGoalShotsTeleop()+ 1);
+                    
+                    else if(keyIndex == 1)
+                        m_bot6.setMiddleGoalShotsTeleop(m_bot6.getMiddleGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 2)
+                        m_bot6.setHighGoalShotsTeleop(m_bot6.getHighGoalShotsTeleop() + 1);
+                    
+                    else if(keyIndex == 3)
+                        m_bot6.setPryamidGoalShots(m_bot6.getPryamidGoalShots() + 1);
+                }
+            }
+        }
     }
     
     /**
@@ -198,16 +409,16 @@ public class Form extends javax.swing.JFrame
         jLabel7 = new javax.swing.JLabel();
         slBot6ClimbLevel = new javax.swing.JSlider();
         jLabel4 = new javax.swing.JLabel();
-        txBot1FeedTime = new javax.swing.JTextField();
-        txBot2FeedTime = new javax.swing.JTextField();
+        txBot1Comments = new javax.swing.JTextField();
+        txBot2Comments = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txBot3FeedTime = new javax.swing.JTextField();
+        txBot3Comments = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txBot4FeedTime = new javax.swing.JTextField();
+        txBot4Comments = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txBot5FeedTime = new javax.swing.JTextField();
+        txBot5Comments = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txBot6FeedTime = new javax.swing.JTextField();
+        txBot6Comments = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         txHuman1 = new javax.swing.JTextField();
@@ -391,24 +602,22 @@ public class Form extends javax.swing.JFrame
         slBot6ClimbLevel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Feed Time");
+        jLabel4.setText("Comments");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("Feed Time");
+        jLabel8.setText("Comments");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setText("Feed Time");
+        jLabel9.setText("Comments");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel10.setText("Feed Time");
+        jLabel10.setText("Comments");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setText("Feed Time");
-
-        txBot6FeedTime.setText("jTextField1");
+        jLabel11.setText("Comments");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setText("Feed Time");
+        jLabel12.setText("Comments");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("Human Scored");
@@ -423,21 +632,18 @@ public class Form extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbTeleop, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(jScrollPane2))
-                                .addGap(136, 136, 136)))
-                        .addComponent(btSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbTeleop, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 568, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane2))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbAutonomous, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 568, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(136, 136, 136)
+                .addComponent(btSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
             .addGroup(layout.createSequentialGroup()
                 .addGap(338, 338, 338)
                 .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -450,7 +656,7 @@ public class Form extends javax.swing.JFrame
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txBot1FeedTime))
+                                .addComponent(txBot1Comments))
                             .addComponent(chkBot1Defensive)
                             .addComponent(lbBot1)
                             .addComponent(chkBot1Penalized)
@@ -458,12 +664,12 @@ public class Form extends javax.swing.JFrame
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(slBot1ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txBot2FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txBot2Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(chkBot2Defensive)
                                 .addComponent(chkBot2Broken)
@@ -478,7 +684,7 @@ public class Form extends javax.swing.JFrame
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txBot3FeedTime))
+                                .addComponent(txBot3Comments))
                             .addComponent(lbBot3)
                             .addComponent(chkBot3Defensive)
                             .addComponent(chkBot3Broken)
@@ -487,7 +693,7 @@ public class Form extends javax.swing.JFrame
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(slBot3ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(chkBot4Defensive)
@@ -496,12 +702,13 @@ public class Form extends javax.swing.JFrame
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel5)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(slBot4ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(slBot4ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(chkBot4Broken))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txBot4FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                                .addComponent(txBot4Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -521,7 +728,7 @@ public class Form extends javax.swing.JFrame
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel11)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txBot5FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txBot5Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -535,12 +742,10 @@ public class Form extends javax.swing.JFrame
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel12)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txBot6FeedTime)))
-                                .addContainerGap(35, Short.MAX_VALUE))))
+                                        .addComponent(txBot6Comments)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(chkBot1Broken)
-                        .addGap(521, 521, 521)
-                        .addComponent(chkBot4Broken)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(183, 183, 183)
@@ -608,23 +813,20 @@ public class Form extends javax.swing.JFrame
                                 .addComponent(chkBot5Broken)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(11, 11, 11)
-                                            .addComponent(jLabel1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(slBot1ClimbLevel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(11, 11, 11)
-                                            .addComponent(jLabel2)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(slBot2ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(slBot3ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(11, 11, 11)
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(slBot1ClimbLevel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(11, 11, 11)
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(slBot2ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(slBot3ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
                                 .addComponent(jLabel3))))
@@ -649,31 +851,32 @@ public class Form extends javax.swing.JFrame
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txBot1FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txBot1Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(txBot2FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txBot2Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(txBot3FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txBot3Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(txBot4FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txBot4Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
-                    .addComponent(txBot5FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txBot5Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(txBot6FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txBot6Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(txHuman1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
                     .addComponent(txHuman2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbAutonomous)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
                         .addComponent(btSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbAutonomous)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbTeleop, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -823,12 +1026,12 @@ public class Form extends javax.swing.JFrame
     private javax.swing.JSlider slBot5ClimbLevel;
     private javax.swing.JSlider slBot6ClimbLevel;
     private javax.swing.JTextArea txAuto;
-    private javax.swing.JTextField txBot1FeedTime;
-    private javax.swing.JTextField txBot2FeedTime;
-    private javax.swing.JTextField txBot3FeedTime;
-    private javax.swing.JTextField txBot4FeedTime;
-    private javax.swing.JTextField txBot5FeedTime;
-    private javax.swing.JTextField txBot6FeedTime;
+    private javax.swing.JTextField txBot1Comments;
+    private javax.swing.JTextField txBot2Comments;
+    private javax.swing.JTextField txBot3Comments;
+    private javax.swing.JTextField txBot4Comments;
+    private javax.swing.JTextField txBot5Comments;
+    private javax.swing.JTextField txBot6Comments;
     private javax.swing.JTextField txHuman1;
     private javax.swing.JTextField txHuman2;
     private javax.swing.JTextArea txTeleop;
