@@ -13,12 +13,12 @@ public class RobotData
     private boolean m_bDefensive = false;
     private boolean m_bPenalized = false;
     private boolean m_bBroken = false;
-    private int m_iTotalShots = 0;
-    private int m_iHighGoal = 0;
-    private int m_iMiddleGoal = 0;
-    private int m_iLowGoal = 0;
-    private int m_iDumpGoal = 0;
+    private int m_iHighGoalAuto = 0;
+    private int m_iMiddleGoalAuto = 0;
+    private int m_iLowGoalAuto = 0;
+    private int m_iDumpGoalAuto = 0;
     private int m_iClimbLevel = 0;
+    private String m_sFeedTime = "0";
     
     public void setDefensive(boolean bVal)
     {
@@ -35,34 +35,34 @@ public class RobotData
         m_bBroken = bVal;
     }
     
-    public void setTotalShots(int iTotalShots)
+    public void setHighGoalShotsAuto(int iShots)
     {
-        m_iTotalShots = iTotalShots;
+        m_iHighGoalAuto = iShots;
     }
     
-    public void setHighGoalShots(int iShots)
+    public void setMiddleGoalShotsAuto(int iShots)
     {
-        m_iHighGoal = iShots;
+        m_iMiddleGoalAuto = iShots;
     }
     
-    public void setMiddleGoalShots(int iShots)
+    public void setLowGoalShotsAuto(int iShots)
     {
-        m_iMiddleGoal = iShots;
+        m_iLowGoalAuto = iShots;
     }
     
-    public void setLowGoalShots(int iShots)
+    public void setDumpGoalShotsAuto(int iShots)
     {
-        m_iLowGoal = iShots;
-    }
-    
-    public void setDumpGoalShots(int iShots)
-    {
-        m_iDumpGoal = iShots;
+        m_iDumpGoalAuto = iShots;
     }
     
     public void setClimbLevel(int iLevel)
     {
         m_iClimbLevel = iLevel;
+    }
+    
+    public void setFeedTime(String sTime)
+    {
+        m_sFeedTime = sTime;
     }
     
     public boolean getDefensive()
@@ -80,29 +80,24 @@ public class RobotData
         return m_bBroken;
     }
     
-    public int getTotalShots()
+    public int getHighGoalShotsAuto()
     {
-        return m_iTotalShots;
+        return m_iHighGoalAuto;
     }
     
-    public int getHighGoalShots()
+    public int getMiddleGoalShotsAuto()
     {
-        return m_iHighGoal;
+        return m_iMiddleGoalAuto;
     }
     
-    public int getMiddleGoalShots()
+    public int getLowGoalShotsAuto()
     {
-        return m_iMiddleGoal;
+        return m_iLowGoalAuto;
     }
     
-    public int getLowGoalShots()
+    public int getDumpGoalShotsAuto()
     {
-        return m_iLowGoal;
-    }
-    
-    public int getDumpGoalShots()
-    {
-        return m_iDumpGoal;
+        return m_iDumpGoalAuto;
     }
     
     public int getClimbLevel()
@@ -110,16 +105,21 @@ public class RobotData
         return m_iClimbLevel;
     }
     
+    public String getFeedTime()
+    {
+        return m_sFeedTime;
+    }
+    
     public void reset()
     {
         m_bDefensive = false;
         m_bPenalized = false;
         m_bBroken = false;
-        m_iTotalShots = 0;
-        m_iHighGoal = 0;
-        m_iMiddleGoal = 0;
-        m_iLowGoal = 0;
-        m_iDumpGoal = 0;
+        m_iHighGoalAuto = 0;
+        m_iMiddleGoalAuto = 0;
+        m_iLowGoalAuto = 0;
+        m_iDumpGoalAuto = 0;
         m_iClimbLevel = 0;
+        m_sFeedTime = "";
     }
 }

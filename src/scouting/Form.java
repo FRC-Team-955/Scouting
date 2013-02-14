@@ -17,6 +17,14 @@ public class Form extends javax.swing.JFrame
     RobotData m_bot4;
     RobotData m_bot5;
     RobotData m_bot6;
+    
+    char m_cBot1Key[] = {'q', 'a', 'z'};
+    char m_cBot2Key[] = {'q', 'a', 'z'};
+    char m_cBot3Key[] = {'q', 'a', 'z'};
+    char m_cBot4Key[] = {'q', 'a', 'z'};
+    char m_cBot5Key[] = {'q', 'a', 'z'};
+    char m_cBot6Key[] = {'q', 'a', 'z'};
+    
     /**
      * Creates new form Form
      */
@@ -42,29 +50,93 @@ public class Form extends javax.swing.JFrame
         
         txAuto.setText("");
         txTeleop.setText("");
+        
+        // Bot 1
         chkBot1Broken.setSelected(false);
         chkBot1Defensive.setSelected(false);
         chkBot1Penalized.setSelected(false);
+        slBot1ClimbLevel.setValue(0);
+        txBot1FeedTime.setText("");
+        
+        // Bot 2
         chkBot2Broken.setSelected(false);
         chkBot2Defensive.setSelected(false);
         chkBot2Penalized.setSelected(false);
+        slBot2ClimbLevel.setValue(0);
+        txBot2FeedTime.setText("");
+        
+        // Bot 3
         chkBot3Broken.setSelected(false);
         chkBot3Defensive.setSelected(false);
         chkBot3Penalized.setSelected(false);
+        slBot3ClimbLevel.setValue(0);
+        txBot3FeedTime.setText("");
+        
+        // Bot 4
         chkBot4Broken.setSelected(false);
         chkBot4Defensive.setSelected(false);
         chkBot4Penalized.setSelected(false);
+        slBot4ClimbLevel.setValue(0);
+        txBot4FeedTime.setText("");
+        
+        // Bot 5
         chkBot5Broken.setSelected(false);
         chkBot5Defensive.setSelected(false);
         chkBot5Penalized.setSelected(false);
+        slBot5ClimbLevel.setValue(0);
+        txBot5FeedTime.setText("");
+        
+        // Bot 6
         chkBot6Broken.setSelected(false);
         chkBot6Defensive.setSelected(false);
         chkBot6Penalized.setSelected(false);
+        slBot6ClimbLevel.setValue(0);
+        txBot6FeedTime.setText("");
     }
     
     public void submitData()
     {
+        // Bot 1
+        m_bot1.setBroken(chkBot1Broken.isSelected());
+        m_bot1.setDefensive(chkBot1Defensive.isSelected());
+        m_bot1.setDefensive(chkBot1Penalized.isSelected());
+        m_bot1.setClimbLevel(slBot1ClimbLevel.getValue());
+        m_bot1.setFeedTime(txBot1FeedTime.getText());
         
+        // Bot 2
+        m_bot2.setBroken(chkBot2Broken.isSelected());
+        m_bot2.setDefensive(chkBot2Defensive.isSelected());
+        m_bot2.setDefensive(chkBot2Penalized.isSelected());
+        m_bot2.setClimbLevel(slBot2ClimbLevel.getValue());
+        m_bot2.setFeedTime(txBot2FeedTime.getText());
+        
+        // Bot 3
+        m_bot3.setBroken(chkBot3Broken.isSelected());
+        m_bot3.setDefensive(chkBot3Defensive.isSelected());
+        m_bot3.setDefensive(chkBot3Penalized.isSelected());
+        m_bot3.setClimbLevel(slBot3ClimbLevel.getValue());
+        m_bot3.setFeedTime(txBot3FeedTime.getText());
+        
+        // Bot 4
+        m_bot4.setBroken(chkBot4Broken.isSelected());
+        m_bot4.setDefensive(chkBot4Defensive.isSelected());
+        m_bot4.setDefensive(chkBot4Penalized.isSelected());
+        m_bot4.setClimbLevel(slBot4ClimbLevel.getValue());
+        m_bot4.setFeedTime(txBot4FeedTime.getText());
+        
+        // Bot 5
+        m_bot5.setBroken(chkBot5Broken.isSelected());
+        m_bot5.setDefensive(chkBot5Defensive.isSelected());
+        m_bot5.setDefensive(chkBot5Penalized.isSelected());
+        m_bot5.setClimbLevel(slBot5ClimbLevel.getValue());
+        m_bot5.setFeedTime(txBot5FeedTime.getText());
+        
+        // Bot 6
+        m_bot6.setBroken(chkBot6Broken.isSelected());
+        m_bot6.setDefensive(chkBot6Defensive.isSelected());
+        m_bot6.setDefensive(chkBot6Penalized.isSelected());
+        m_bot6.setClimbLevel(slBot6ClimbLevel.getValue());
+        m_bot6.setFeedTime(txBot6FeedTime.getText());
     }
     
     /**
@@ -113,34 +185,33 @@ public class Form extends javax.swing.JFrame
         chkBot6Defensive = new javax.swing.JCheckBox();
         chkBot6Broken = new javax.swing.JCheckBox();
         chkBot6Penalized = new javax.swing.JCheckBox();
-        jSlider1 = new javax.swing.JSlider();
+        slBot1ClimbLevel = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
-        jSlider2 = new javax.swing.JSlider();
+        slBot2ClimbLevel = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
-        jSlider3 = new javax.swing.JSlider();
+        slBot3ClimbLevel = new javax.swing.JSlider();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jSlider5 = new javax.swing.JSlider();
+        slBot4ClimbLevel = new javax.swing.JSlider();
         jLabel6 = new javax.swing.JLabel();
-        jSlider6 = new javax.swing.JSlider();
+        slBot5ClimbLevel = new javax.swing.JSlider();
         jLabel7 = new javax.swing.JLabel();
-        jSlider7 = new javax.swing.JSlider();
+        slBot6ClimbLevel = new javax.swing.JSlider();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txBot1FeedTime = new javax.swing.JTextField();
+        txBot2FeedTime = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txBot3FeedTime = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txBot4FeedTime = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txBot5FeedTime = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txBot6FeedTime = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        txHuman1 = new javax.swing.JTextField();
+        txHuman2 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -271,26 +342,26 @@ public class Form extends javax.swing.JFrame
 
         chkBot6Penalized.setText("Penalized?");
 
-        jSlider1.setMajorTickSpacing(1);
-        jSlider1.setMaximum(3);
-        jSlider1.setPaintLabels(true);
-        jSlider1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        slBot1ClimbLevel.setMajorTickSpacing(1);
+        slBot1ClimbLevel.setMaximum(3);
+        slBot1ClimbLevel.setPaintLabels(true);
+        slBot1ClimbLevel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Climb Level");
 
-        jSlider2.setMajorTickSpacing(1);
-        jSlider2.setMaximum(3);
-        jSlider2.setPaintLabels(true);
-        jSlider2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        slBot2ClimbLevel.setMajorTickSpacing(1);
+        slBot2ClimbLevel.setMaximum(3);
+        slBot2ClimbLevel.setPaintLabels(true);
+        slBot2ClimbLevel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Climb Level");
 
-        jSlider3.setMajorTickSpacing(1);
-        jSlider3.setMaximum(3);
-        jSlider3.setPaintLabels(true);
-        jSlider3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        slBot3ClimbLevel.setMajorTickSpacing(1);
+        slBot3ClimbLevel.setMaximum(3);
+        slBot3ClimbLevel.setPaintLabels(true);
+        slBot3ClimbLevel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Climb Level");
@@ -298,65 +369,51 @@ public class Form extends javax.swing.JFrame
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Climb Level");
 
-        jSlider5.setMajorTickSpacing(1);
-        jSlider5.setMaximum(3);
-        jSlider5.setPaintLabels(true);
-        jSlider5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        slBot4ClimbLevel.setMajorTickSpacing(1);
+        slBot4ClimbLevel.setMaximum(3);
+        slBot4ClimbLevel.setPaintLabels(true);
+        slBot4ClimbLevel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Climb Level");
 
-        jSlider6.setMajorTickSpacing(1);
-        jSlider6.setMaximum(3);
-        jSlider6.setPaintLabels(true);
-        jSlider6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        slBot5ClimbLevel.setMajorTickSpacing(1);
+        slBot5ClimbLevel.setMaximum(3);
+        slBot5ClimbLevel.setPaintLabels(true);
+        slBot5ClimbLevel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Climb Level");
 
-        jSlider7.setMajorTickSpacing(1);
-        jSlider7.setMaximum(3);
-        jSlider7.setPaintLabels(true);
-        jSlider7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        slBot6ClimbLevel.setMajorTickSpacing(1);
+        slBot6ClimbLevel.setMaximum(3);
+        slBot6ClimbLevel.setPaintLabels(true);
+        slBot6ClimbLevel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Feed Time");
 
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField1");
-
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Feed Time");
-
-        jTextField3.setText("jTextField1");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Feed Time");
 
-        jTextField4.setText("jTextField1");
-
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Feed Time");
-
-        jTextField5.setText("jTextField1");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Feed Time");
 
-        jTextField6.setText("jTextField1");
+        txBot6FeedTime.setText("jTextField1");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Feed Time");
 
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("Human Scored");
 
-        jLabel14.setText("jLabel13");
-
-        jTextField7.setText("jTextField1");
-
-        jTextField8.setText("jTextField1");
-
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Human Scored");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -393,20 +450,20 @@ public class Form extends javax.swing.JFrame
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1))
+                                .addComponent(txBot1FeedTime))
                             .addComponent(chkBot1Defensive)
                             .addComponent(lbBot1)
                             .addComponent(chkBot1Penalized)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(slBot1ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txBot2FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(chkBot2Defensive)
                                 .addComponent(chkBot2Broken)
@@ -415,13 +472,13 @@ public class Form extends javax.swing.JFrame
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(slBot2ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3))
+                                .addComponent(txBot3FeedTime))
                             .addComponent(lbBot3)
                             .addComponent(chkBot3Defensive)
                             .addComponent(chkBot3Broken)
@@ -429,22 +486,21 @@ public class Form extends javax.swing.JFrame
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(slBot3ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(chkBot4Defensive)
-                                .addComponent(chkBot4Broken)
                                 .addComponent(chkBot4Penalized)
                                 .addComponent(lbBot4)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel5)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSlider5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(slBot4ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txBot4FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -465,37 +521,37 @@ public class Form extends javax.swing.JFrame
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel11)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txBot5FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSlider6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(slBot5ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSlider7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(slBot6ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel12)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField6)))
+                                        .addComponent(txBot6FeedTime)))
                                 .addContainerGap(35, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chkBot1Broken)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(189, 189, 189)
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(138, 138, 138)
-                                .addComponent(jLabel14)))
-                        .addContainerGap())))
+                        .addComponent(chkBot1Broken)
+                        .addGap(521, 521, 521)
+                        .addComponent(chkBot4Broken)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txHuman1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txHuman2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(184, 184, 184))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,7 +592,7 @@ public class Form extends javax.swing.JFrame
                                 .addComponent(chkBot4Defensive)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(chkBot4Penalized)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(chkBot4Broken))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(chkBot6Defensive)
@@ -550,6 +606,7 @@ public class Form extends javax.swing.JFrame
                                 .addComponent(chkBot5Penalized)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(chkBot5Broken)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -559,15 +616,15 @@ public class Form extends javax.swing.JFrame
                                             .addGap(11, 11, 11)
                                             .addComponent(jLabel1)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(slBot1ClimbLevel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(11, 11, 11)
                                             .addComponent(jLabel2)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(slBot2ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(slBot3ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
                                 .addComponent(jLabel3))))
@@ -575,41 +632,40 @@ public class Form extends javax.swing.JFrame
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSlider5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(slBot4ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(11, 11, 11)
                                     .addComponent(jLabel5)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSlider6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(slBot5ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(11, 11, 11)
                                     .addComponent(jLabel6)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSlider7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(slBot6ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(11, 11, 11)
                                     .addComponent(jLabel7))))))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txBot1FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txBot2FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txBot3FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txBot4FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txBot5FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                    .addComponent(txBot6FeedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txHuman1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txHuman2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbAutonomous)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -740,7 +796,6 @@ public class Form extends javax.swing.JFrame
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -752,20 +807,6 @@ public class Form extends javax.swing.JFrame
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSlider jSlider2;
-    private javax.swing.JSlider jSlider3;
-    private javax.swing.JSlider jSlider5;
-    private javax.swing.JSlider jSlider6;
-    private javax.swing.JSlider jSlider7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lbAutonomous;
     private javax.swing.JLabel lbBot1;
     private javax.swing.JLabel lbBot2;
@@ -775,7 +816,21 @@ public class Form extends javax.swing.JFrame
     private javax.swing.JLabel lbBot6;
     private javax.swing.JLabel lbTeleop;
     private javax.swing.JLabel lbTitle;
+    private javax.swing.JSlider slBot1ClimbLevel;
+    private javax.swing.JSlider slBot2ClimbLevel;
+    private javax.swing.JSlider slBot3ClimbLevel;
+    private javax.swing.JSlider slBot4ClimbLevel;
+    private javax.swing.JSlider slBot5ClimbLevel;
+    private javax.swing.JSlider slBot6ClimbLevel;
     private javax.swing.JTextArea txAuto;
+    private javax.swing.JTextField txBot1FeedTime;
+    private javax.swing.JTextField txBot2FeedTime;
+    private javax.swing.JTextField txBot3FeedTime;
+    private javax.swing.JTextField txBot4FeedTime;
+    private javax.swing.JTextField txBot5FeedTime;
+    private javax.swing.JTextField txBot6FeedTime;
+    private javax.swing.JTextField txHuman1;
+    private javax.swing.JTextField txHuman2;
     private javax.swing.JTextArea txTeleop;
     // End of variables declaration//GEN-END:variables
 }
