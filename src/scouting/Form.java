@@ -4,6 +4,7 @@
  */
 package scouting;
 import javax.swing.JOptionPane;
+import java.io.File;
 /**
  *
  * @author Fauzi
@@ -30,6 +31,60 @@ public class Form extends javax.swing.JFrame
         m_bot6 = new RobotData();        
     }
 
+    public void resetData()
+    {
+        m_bot1.reset();
+        m_bot2.reset();
+        m_bot3.reset();
+        m_bot4.reset();
+        m_bot5.reset();
+        m_bot6.reset();  
+        
+        txAuto.setText("");
+        txTeleop.setText("");
+        chkBot1Broken.setSelected(false);
+        chkBot1Defensive.setSelected(false);
+        chkBot1LevelOne.setSelected(false);
+        chkBot1LevelThree.setSelected(false);
+        chkBot1LevelTwo.setSelected(false);
+        chkBot1Penalized.setSelected(false);
+        chkBot2Broken.setSelected(false);
+        chkBot2Defensive.setSelected(false);
+        chkBot2LevelOne.setSelected(false);
+        chkBot2LevelThree.setSelected(false);
+        chkBot2LevelTwo.setSelected(false);
+        chkBot2Penalized.setSelected(false);
+        chkBot3Broken.setSelected(false);
+        chkBot3Defensive.setSelected(false);
+        chkBot3LevelOne.setSelected(false);
+        chkBot3LevelThree.setSelected(false);
+        chkBot3LevelTwo.setSelected(false);
+        chkBot3Penalized.setSelected(false);
+        chkBot4Broken.setSelected(false);
+        chkBot4Defensive.setSelected(false);
+        chkBot4LevelOne.setSelected(false);
+        chkBot4LevelThree.setSelected(false);
+        chkBot4LevelTwo.setSelected(false);
+        chkBot4Penalized.setSelected(false);
+        chkBot5Broken.setSelected(false);
+        chkBot5Defensive.setSelected(false);
+        chkBot5LevelOne.setSelected(false);
+        chkBot5LevelThree.setSelected(false);
+        chkBot5LevelTwo.setSelected(false);
+        chkBot5Penalized.setSelected(false);
+        chkBot6Broken.setSelected(false);
+        chkBot6Defensive.setSelected(false);
+        chkBot6LevelOne.setSelected(false);
+        chkBot6LevelThree.setSelected(false);
+        chkBot6LevelTwo.setSelected(false);
+        chkBot6Penalized.setSelected(false);
+    }
+    
+    public void submitData()
+    {
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -538,7 +593,6 @@ public class Form extends javax.swing.JFrame
 
     private void chkBot1DefensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot1DefensiveActionPerformed
         // TODO add your handling code here:
-        m_bot1.setDefensive(chkBot1Defensive.isSelected());
     }//GEN-LAST:event_chkBot1DefensiveActionPerformed
 
     private void chkBot1LevelOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot1LevelOneActionPerformed
@@ -636,7 +690,7 @@ public class Form extends javax.swing.JFrame
     private void btSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSubmitActionPerformed
         // TODO add your handling code here:
         Object[] options = {"Yes I did!", "Nope, I did not :("};
-        int n = JOptionPane.showOptionDialog(this,
+        int iResponse = JOptionPane.showOptionDialog(this,
                                             "Are you sure you entered the data right?",
                                             "Just Making Sure!!!",
                                             JOptionPane.YES_NO_CANCEL_OPTION,
@@ -645,6 +699,11 @@ public class Form extends javax.swing.JFrame
                                             options,
                                             options[1]);
         
+        if(iResponse == JOptionPane.YES_OPTION)
+        {
+            submitData();
+            resetData();
+        }
     }//GEN-LAST:event_btSubmitActionPerformed
 
     private void chkBot4PenalizedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBot4PenalizedActionPerformed
