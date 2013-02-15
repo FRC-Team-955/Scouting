@@ -11,9 +11,10 @@ package scouting;
 public class RobotData 
 {
     private int m_iDataLengthBoolean = 3;
-    private boolean m_bDefensive = false;
-    private boolean m_bPenalized = false;
-    private boolean m_bBroken = false;
+    private boolean m_bDataArray[] = new boolean[m_iDataLengthBoolean];
+    private int m_iDefensive = 0;
+    private int m_iPenalized = 1;
+    private int m_iBroken = 2;
     private int m_iDataLengthInt = 8;
     private int m_iDataArray[] = new int[m_iDataLengthInt];
     private int m_iHighGoalAuto = 0;
@@ -28,17 +29,17 @@ public class RobotData
     
     public void setDefensive(boolean bVal)
     {
-        m_bDefensive = bVal;
+        m_bDataArray[m_iDefensive] = bVal;
     }
     
     public void setPenalized(boolean bVal)
     {
-        m_bPenalized = bVal;
+        m_bDataArray[m_iPenalized] = bVal;
     }
     
     public void setBroken(boolean bVal)
     {
-        m_bBroken = bVal;
+        m_bDataArray[m_iBroken] = bVal;
     }
     
     public void setHighGoalShotsAuto(int iShots)
@@ -88,17 +89,17 @@ public class RobotData
     
     public boolean getDefensive()
     {
-        return m_bDefensive;
+        return m_bDataArray[m_iDefensive];
     }
     
     public boolean getPenalized()
     {
-        return m_bPenalized;
+        return m_bDataArray[m_iPenalized];
     }
     
     public boolean getBroken()
     {
-        return m_bBroken;
+        return m_bDataArray[m_iBroken];
     }
     
     public int getHighGoalShotsAuto()
@@ -146,12 +147,21 @@ public class RobotData
         return m_sComments;
     }
     
+    public boolean[] getAllBooleanData()
+    {
+        return m_bDataArray;
+    }
+    
+    public int[] getAllIntData()
+    {
+        return m_iDataArray;
+    }
+    
     public void reset()
     {
-        m_bDefensive = false;
-        m_bPenalized = false;
-        m_bBroken = false;
-        
+        for(int index = 0; index < m_iDataLengthBoolean; index++)
+            m_bDataArray[index] = false;
+            
         for(int index = 0; index < m_iDataLengthInt; index++)
             m_iDataArray[index] = 0;
             
