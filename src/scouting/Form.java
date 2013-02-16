@@ -5,6 +5,8 @@
 package scouting;
 import javax.swing.JOptionPane;
 import java.io.File;
+import java.io.IOException;
+import java.io.FileWriter;
 /**
  *
  * @author Fauzi
@@ -19,12 +21,14 @@ public class Form extends javax.swing.JFrame
     RobotData m_bot6;
     
     int m_iKeyLength = 4;
-    char m_cBot1Key[] = {'q', 'a', 'z', 'w'};
-    char m_cBot2Key[] = {'q', 'a', 'z', 'w'};
-    char m_cBot3Key[] = {'q', 'a', 'z', 'w'};
-    char m_cBot4Key[] = {'q', 'a', 'z', 'w'};
-    char m_cBot5Key[] = {'q', 'a', 'z', 'w'};
-    char m_cBot6Key[] = {'q', 'a', 'z', 'w'};
+    
+    // keyArray Format: low, mid, high, pyramid
+    char m_cBot1Key[] = {'q', 'a', 'z', '1'};
+    char m_cBot2Key[] = {'w', 's', 'x', '2'};
+    char m_cBot3Key[] = {'e', 'd', 'c', '3'};
+    char m_cBot4Key[] = {'r', 'f', 'v', '4'};
+    char m_cBot5Key[] = {'t', 'g', 'b', '5'};
+    char m_cBot6Key[] = {'y', 'h', 'n', '6'};
     
     /**
      * Creates new form Form
@@ -38,8 +42,83 @@ public class Form extends javax.swing.JFrame
         m_bot4 = new RobotData();
         m_bot5 = new RobotData();
         m_bot6 = new RobotData();        
+        
     }
+    /**
+     * Exports to .csv file.
+     * @param directory
+     * @param bArray
+     * @param array
+     * @param sComment 
+     */
+     public static void writeData(String directory, boolean bArray[], int array[], String sComment, String sTeamNumber)
+    {  
+        try
+        {
+            FileWriter writer = new FileWriter(directory);
+            //Integer headers
+            writer.append("HighGoal Autonomous");
+            writer.append(",");
+            writer.append("MidGoal Autonomous");
+            writer.append(",");
+            writer.append("LowGoal Autonomous");
+            writer.append(",");
+            writer.append("HighGoal Teleop");
+            writer.append(",");
+            writer.append("MidGoal Teleop");
+            writer.append(",");
+            writer.append("LowGoal Teleop");
+            writer.append(",");
+            writer.append("PyramidGoal");
+            writer.append(",");
+            writer.append("ClimbLevel");
+            writer.append(",");
+            
+            //Boolean headers
+            writer.append("isDefensive");
+            writer.append(",");
+            writer.append("isPenalized");
+            writer.append(",");
+            writer.append("isBroken");
+            //TeamNumber
+            writer.append(sTeamNumber);
+            //New line
+            writer.append("\n");
+            
+            
+            for(int index = 0; index < array.length; index++)
+            {
+                writer.append(String.valueOf(array[index]));
+                writer.append(",");
+                
+            }
+            
+            for(int index = 0; index < bArray.length; index++)
+            {
+                String strIndex;
+                if(bArray[index] == true) 
+                    {
+                    strIndex = "true";
+                    writer.append(strIndex); 
+                    writer.append(",");
+                    }
+                else if(bArray[index] == false)
+                    {
+                    strIndex = "false";
+                    writer.append(strIndex);
+                    writer.append(",");
+                    }
+            }
+            writer.append(sComment);
+            writer.flush();
+            writer.close();
+        }
 
+        catch(IOException e)
+        {
+             e.printStackTrace();
+        } 
+      }
     public void resetData()
     {
         m_bot1.reset();
@@ -58,6 +137,7 @@ public class Form extends javax.swing.JFrame
         chkBot1Penalized.setSelected(false);
         slBot1ClimbLevel.setValue(0);
         txBot1Comments.setText("");
+        txBot1Number.setText("Bot 1");
         
         // Bot 2
         chkBot2Broken.setSelected(false);
@@ -65,6 +145,7 @@ public class Form extends javax.swing.JFrame
         chkBot2Penalized.setSelected(false);
         slBot2ClimbLevel.setValue(0);
         txBot2Comments.setText("");
+        txBot2Number.setText("Bot 2");
         
         // Bot 3
         chkBot3Broken.setSelected(false);
@@ -72,6 +153,7 @@ public class Form extends javax.swing.JFrame
         chkBot3Penalized.setSelected(false);
         slBot3ClimbLevel.setValue(0);
         txBot3Comments.setText("");
+        txBot3Number.setText("Bot 3");
         
         // Bot 4
         chkBot4Broken.setSelected(false);
@@ -79,6 +161,7 @@ public class Form extends javax.swing.JFrame
         chkBot4Penalized.setSelected(false);
         slBot4ClimbLevel.setValue(0);
         txBot4Comments.setText("");
+        txBot4Number.setText("Bot 1");
         
         // Bot 5
         chkBot5Broken.setSelected(false);
@@ -86,6 +169,7 @@ public class Form extends javax.swing.JFrame
         chkBot5Penalized.setSelected(false);
         slBot5ClimbLevel.setValue(0);
         txBot5Comments.setText("");
+        txBot5Number.setText("");
         
         // Bot 6
         chkBot6Broken.setSelected(false);
@@ -93,11 +177,13 @@ public class Form extends javax.swing.JFrame
         chkBot6Penalized.setSelected(false);
         slBot6ClimbLevel.setValue(0);
         txBot6Comments.setText("");
+        txBot6Number.setText("");
     }
     
     public void submitData()
     {
         // Bot 1
+        m_bot1.setTeamNumber(txBot1Number.getText());
         m_bot1.setBroken(chkBot1Broken.isSelected());
         m_bot1.setDefensive(chkBot1Defensive.isSelected());
         m_bot1.setDefensive(chkBot1Penalized.isSelected());
@@ -105,6 +191,7 @@ public class Form extends javax.swing.JFrame
         m_bot1.setComment(txBot1Comments.getText());
         
         // Bot 2
+        m_bot2.setTeamNumber(txBot2Number.getText());
         m_bot2.setBroken(chkBot2Broken.isSelected());
         m_bot2.setDefensive(chkBot2Defensive.isSelected());
         m_bot2.setDefensive(chkBot2Penalized.isSelected());
@@ -112,6 +199,7 @@ public class Form extends javax.swing.JFrame
         m_bot2.setComment(txBot2Comments.getText());
         
         // Bot 3
+        m_bot3.setTeamNumber(txBot3Number.getText());
         m_bot3.setBroken(chkBot3Broken.isSelected());
         m_bot3.setDefensive(chkBot3Defensive.isSelected());
         m_bot3.setDefensive(chkBot3Penalized.isSelected());
@@ -119,6 +207,7 @@ public class Form extends javax.swing.JFrame
         m_bot3.setComment(txBot3Comments.getText());
         
         // Bot 4
+        m_bot4.setTeamNumber(txBot4Number.getText());
         m_bot4.setBroken(chkBot4Broken.isSelected());
         m_bot4.setDefensive(chkBot4Defensive.isSelected());
         m_bot4.setDefensive(chkBot4Penalized.isSelected());
@@ -126,6 +215,7 @@ public class Form extends javax.swing.JFrame
         m_bot4.setComment(txBot4Comments.getText());
         
         // Bot 5
+        m_bot5.setTeamNumber(txBot5Number.getText());
         m_bot5.setBroken(chkBot5Broken.isSelected());
         m_bot5.setDefensive(chkBot5Defensive.isSelected());
         m_bot5.setDefensive(chkBot5Penalized.isSelected());
@@ -133,6 +223,7 @@ public class Form extends javax.swing.JFrame
         m_bot5.setComment(txBot5Comments.getText());
         
         // Bot 6
+        m_bot6.setTeamNumber(txBot6Number.getText());
         m_bot6.setBroken(chkBot6Broken.isSelected());
         m_bot6.setDefensive(chkBot6Defensive.isSelected());
         m_bot6.setDefensive(chkBot6Penalized.isSelected());
@@ -349,7 +440,15 @@ public class Form extends javax.swing.JFrame
             }
         }
         
-        
+        writeData("c://botData" + m_bot1.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot1.getAllBooleanData(), m_bot1.getAllIntData(), m_bot1.getComment(), m_bot1.getTeamNumber());
+        writeData("c://botData" + m_bot2.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot2.getAllBooleanData(), m_bot2.getAllIntData(), m_bot2.getComment(), m_bot2.getTeamNumber());
+        writeData("c://botData" + m_bot3.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot3.getAllBooleanData(), m_bot3.getAllIntData(), m_bot3.getComment(), m_bot3.getTeamNumber());
+        writeData("c://botData" + m_bot4.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot4.getAllBooleanData(), m_bot4.getAllIntData(), m_bot4.getComment(), m_bot4.getTeamNumber());
+        writeData("c://botData" + m_bot5.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot5.getAllBooleanData(), m_bot5.getAllIntData(), m_bot5.getComment(), m_bot5.getTeamNumber());
+        writeData("c://botData" + m_bot6.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot6.getAllBooleanData(), m_bot6.getAllIntData(), m_bot6.getComment(), m_bot6.getTeamNumber());
+
+        //        for(int index = 0; index < m_bot1.getIntArrayLength(); index++)
+//            System.out.println(m_bot1.getAllIntData()[index]);
     }
     
     /**
@@ -376,7 +475,7 @@ public class Form extends javax.swing.JFrame
         chkBot1Defensive = new javax.swing.JCheckBox();
         txBot1Comments = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txBot1Number = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         slBot2ClimbLevel = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
@@ -385,7 +484,7 @@ public class Form extends javax.swing.JFrame
         chkBot2Penalized = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
         txBot2Comments = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txBot2Number = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         slBot3ClimbLevel = new javax.swing.JSlider();
@@ -394,7 +493,7 @@ public class Form extends javax.swing.JFrame
         chkBot3Penalized = new javax.swing.JCheckBox();
         jLabel9 = new javax.swing.JLabel();
         txBot3Comments = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txBot3Number = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         slBot4ClimbLevel = new javax.swing.JSlider();
         jLabel5 = new javax.swing.JLabel();
@@ -403,7 +502,7 @@ public class Form extends javax.swing.JFrame
         chkBot4Penalized = new javax.swing.JCheckBox();
         txBot4Comments = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txBot4Number = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         slBot5ClimbLevel = new javax.swing.JSlider();
         jLabel6 = new javax.swing.JLabel();
@@ -412,7 +511,7 @@ public class Form extends javax.swing.JFrame
         chkBot5Penalized = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         txBot5Comments = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txBot5Number = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         chkBot6Penalized = new javax.swing.JCheckBox();
         chkBot6Broken = new javax.swing.JCheckBox();
@@ -421,7 +520,7 @@ public class Form extends javax.swing.JFrame
         txBot6Comments = new javax.swing.JTextField();
         slBot6ClimbLevel = new javax.swing.JSlider();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txBot6Number = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         txHuman1 = new javax.swing.JTextField();
@@ -484,12 +583,12 @@ public class Form extends javax.swing.JFrame
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Comments");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 0, 0));
-        jTextField1.setText("Bot 1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txBot1Number.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txBot1Number.setForeground(new java.awt.Color(255, 0, 0));
+        txBot1Number.setText("Bot 1");
+        txBot1Number.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txBot1NumberActionPerformed(evt);
             }
         });
 
@@ -514,7 +613,7 @@ public class Form extends javax.swing.JFrame
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(10, 10, 10)
                                     .addComponent(txBot1Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jTextField1))
+                                .addComponent(txBot1Number))
                             .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
@@ -524,7 +623,7 @@ public class Form extends javax.swing.JFrame
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txBot1Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot1Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -564,12 +663,12 @@ public class Form extends javax.swing.JFrame
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Comments");
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 0, 0));
-        jTextField2.setText("Bot 2");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txBot2Number.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txBot2Number.setForeground(new java.awt.Color(255, 0, 0));
+        txBot2Number.setText("Bot 2");
+        txBot2Number.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txBot2NumberActionPerformed(evt);
             }
         });
 
@@ -580,7 +679,7 @@ public class Form extends javax.swing.JFrame
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2)
+                    .addComponent(txBot2Number)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(chkBot2Defensive)
@@ -599,7 +698,7 @@ public class Form extends javax.swing.JFrame
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txBot2Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(chkBot2Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -639,12 +738,12 @@ public class Form extends javax.swing.JFrame
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Comments");
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(255, 0, 0));
-        jTextField3.setText("Bot 3");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txBot3Number.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txBot3Number.setForeground(new java.awt.Color(255, 0, 0));
+        txBot3Number.setText("Bot 3");
+        txBot3Number.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txBot3NumberActionPerformed(evt);
             }
         });
 
@@ -655,7 +754,7 @@ public class Form extends javax.swing.JFrame
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3)
+                    .addComponent(txBot3Number)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(chkBot3Defensive)
@@ -674,7 +773,7 @@ public class Form extends javax.swing.JFrame
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txBot3Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(chkBot3Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -719,12 +818,12 @@ public class Form extends javax.swing.JFrame
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Comments");
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(0, 0, 255));
-        jTextField4.setText("Bot 1");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txBot4Number.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txBot4Number.setForeground(new java.awt.Color(0, 0, 255));
+        txBot4Number.setText("Bot 1");
+        txBot4Number.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txBot4NumberActionPerformed(evt);
             }
         });
 
@@ -753,13 +852,13 @@ public class Form extends javax.swing.JFrame
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txBot4Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(slBot4ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jTextField4))
+                            .addComponent(txBot4Number))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txBot4Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(chkBot4Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -799,9 +898,9 @@ public class Form extends javax.swing.JFrame
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Comments");
 
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(0, 0, 255));
-        jTextField5.setText("Bot 2");
+        txBot5Number.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txBot5Number.setForeground(new java.awt.Color(0, 0, 255));
+        txBot5Number.setText("Bot 2");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -820,13 +919,13 @@ public class Form extends javax.swing.JFrame
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txBot5Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(slBot5ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jTextField5))
+                    .addComponent(txBot5Number))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txBot5Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot5Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -866,9 +965,9 @@ public class Form extends javax.swing.JFrame
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Climb Level");
 
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(0, 0, 255));
-        jTextField6.setText("Bot 3");
+        txBot6Number.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txBot6Number.setForeground(new java.awt.Color(0, 0, 255));
+        txBot6Number.setText("Bot 3");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -901,13 +1000,13 @@ public class Form extends javax.swing.JFrame
                         .addGap(0, 10, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(jTextField6)))
+                        .addComponent(txBot6Number)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txBot6Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(chkBot6Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1168,21 +1267,21 @@ public class Form extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_chkBot4PenalizedActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txBot1NumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txBot1NumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txBot1NumberActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txBot2NumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txBot2NumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txBot2NumberActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txBot3NumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txBot3NumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txBot3NumberActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txBot4NumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txBot4NumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txBot4NumberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1270,12 +1369,6 @@ public class Form extends javax.swing.JFrame
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lbAutonomous;
     private javax.swing.JLabel lbTeleop;
     private javax.swing.JLabel lbTitle;
@@ -1287,11 +1380,17 @@ public class Form extends javax.swing.JFrame
     private javax.swing.JSlider slBot6ClimbLevel;
     private javax.swing.JTextArea txAuto;
     private javax.swing.JTextField txBot1Comments;
+    private javax.swing.JTextField txBot1Number;
     private javax.swing.JTextField txBot2Comments;
+    private javax.swing.JTextField txBot2Number;
     private javax.swing.JTextField txBot3Comments;
+    private javax.swing.JTextField txBot3Number;
     private javax.swing.JTextField txBot4Comments;
+    private javax.swing.JTextField txBot4Number;
     private javax.swing.JTextField txBot5Comments;
+    private javax.swing.JTextField txBot5Number;
     private javax.swing.JTextField txBot6Comments;
+    private javax.swing.JTextField txBot6Number;
     private javax.swing.JTextField txHuman1;
     private javax.swing.JTextField txHuman2;
     private javax.swing.JTextField txMatchNumber;

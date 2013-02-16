@@ -5,7 +5,8 @@
 package scouting;
 
 /**
- *
+ * Stores all data into array
+ * Form
  * @author Fauzi
  */
 public class RobotData 
@@ -26,6 +27,12 @@ public class RobotData
     private int m_iPryamidGoal = 6;
     private int m_iClimbLevel = 7;
     private String m_sComments = "";
+    private String m_iTeamNumber = "";
+    
+    public void setTeamNumber(String iTeamNumber)
+    {
+        m_iTeamNumber = iTeamNumber;
+    }
     
     public void setDefensive(boolean bVal)
     {
@@ -85,6 +92,11 @@ public class RobotData
     public void setComment(String sComment)
     {
         m_sComments = sComment;
+    }
+    
+    public String getTeamNumber()
+    {
+        return m_iTeamNumber;
     }
     
     public boolean getDefensive()
@@ -152,9 +164,19 @@ public class RobotData
         return m_bDataArray;
     }
     
+    public int getBooleanArrayLength()
+    {
+        return m_iDataLengthBoolean;
+    }
+    
     public int[] getAllIntData()
     {
         return m_iDataArray;
+    }
+    
+    public int getIntArrayLength()
+    {
+        return m_iDataLengthInt;
     }
     
     public void reset()
@@ -166,5 +188,6 @@ public class RobotData
             m_iDataArray[index] = 0;
             
         m_sComments = "";
+        m_iTeamNumber = "";
     }
 }
