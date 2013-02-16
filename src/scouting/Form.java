@@ -437,7 +437,7 @@ public class Form extends javax.swing.JFrame
         lbAutonomous = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txMatchNumber = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -1018,8 +1018,8 @@ public class Form extends javax.swing.JFrame
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel14.setText("Match Number:");
 
-        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField7.setText("XX");
+        txMatchNumber.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txMatchNumber.setText("XX");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1029,7 +1029,7 @@ public class Form extends javax.swing.JFrame
                 .addContainerGap()
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7)
+                .addComponent(txMatchNumber)
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -1040,7 +1040,7 @@ public class Form extends javax.swing.JFrame
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(2, 2, 2))
-                    .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txMatchNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -1276,7 +1276,6 @@ public class Form extends javax.swing.JFrame
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JLabel lbAutonomous;
     private javax.swing.JLabel lbTeleop;
     private javax.swing.JLabel lbTitle;
@@ -1295,6 +1294,7 @@ public class Form extends javax.swing.JFrame
     private javax.swing.JTextField txBot6Comments;
     private javax.swing.JTextField txHuman1;
     private javax.swing.JTextField txHuman2;
+    private javax.swing.JTextField txMatchNumber;
     private javax.swing.JTextArea txTeleop;
     // End of variables declaration//GEN-END:variables
 }
