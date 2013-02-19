@@ -186,7 +186,7 @@ public class Form extends javax.swing.JFrame
         m_bot1.setTeamNumber(txBot1Number.getText());
         m_bot1.setBroken(chkBot1Broken.isSelected());
         m_bot1.setDefensive(chkBot1Defensive.isSelected());
-        m_bot1.setDefensive(chkBot1Penalized.isSelected());
+        m_bot1.setPenalized(chkBot1Penalized.isSelected());
         m_bot1.setClimbLevel(slBot1ClimbLevel.getValue());
         m_bot1.setComment(txBot1Comments.getText());
         
@@ -194,7 +194,7 @@ public class Form extends javax.swing.JFrame
         m_bot2.setTeamNumber(txBot2Number.getText());
         m_bot2.setBroken(chkBot2Broken.isSelected());
         m_bot2.setDefensive(chkBot2Defensive.isSelected());
-        m_bot2.setDefensive(chkBot2Penalized.isSelected());
+        m_bot2.setPenalized(chkBot2Penalized.isSelected());
         m_bot2.setClimbLevel(slBot2ClimbLevel.getValue());
         m_bot2.setComment(txBot2Comments.getText());
         
@@ -202,7 +202,7 @@ public class Form extends javax.swing.JFrame
         m_bot3.setTeamNumber(txBot3Number.getText());
         m_bot3.setBroken(chkBot3Broken.isSelected());
         m_bot3.setDefensive(chkBot3Defensive.isSelected());
-        m_bot3.setDefensive(chkBot3Penalized.isSelected());
+        m_bot3.setPenalized(chkBot3Penalized.isSelected());
         m_bot3.setClimbLevel(slBot3ClimbLevel.getValue());
         m_bot3.setComment(txBot3Comments.getText());
         
@@ -210,7 +210,7 @@ public class Form extends javax.swing.JFrame
         m_bot4.setTeamNumber(txBot4Number.getText());
         m_bot4.setBroken(chkBot4Broken.isSelected());
         m_bot4.setDefensive(chkBot4Defensive.isSelected());
-        m_bot4.setDefensive(chkBot4Penalized.isSelected());
+        m_bot4.setPenalized(chkBot4Penalized.isSelected());
         m_bot4.setClimbLevel(slBot4ClimbLevel.getValue());
         m_bot4.setComment(txBot4Comments.getText());
         
@@ -218,7 +218,7 @@ public class Form extends javax.swing.JFrame
         m_bot5.setTeamNumber(txBot5Number.getText());
         m_bot5.setBroken(chkBot5Broken.isSelected());
         m_bot5.setDefensive(chkBot5Defensive.isSelected());
-        m_bot5.setDefensive(chkBot5Penalized.isSelected());
+        m_bot5.setPenalized(chkBot5Penalized.isSelected());
         m_bot5.setClimbLevel(slBot5ClimbLevel.getValue());
         m_bot5.setComment(txBot5Comments.getText());
         
@@ -226,7 +226,7 @@ public class Form extends javax.swing.JFrame
         m_bot6.setTeamNumber(txBot6Number.getText());
         m_bot6.setBroken(chkBot6Broken.isSelected());
         m_bot6.setDefensive(chkBot6Defensive.isSelected());
-        m_bot6.setDefensive(chkBot6Penalized.isSelected());
+        m_bot6.setPenalized(chkBot6Penalized.isSelected());
         m_bot6.setClimbLevel(slBot6ClimbLevel.getValue());
         m_bot6.setComment(txBot6Comments.getText());
         
