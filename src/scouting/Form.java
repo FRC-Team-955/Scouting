@@ -20,6 +20,8 @@ public class Form extends javax.swing.JFrame
     RobotData m_bot5;
     RobotData m_bot6;
     
+    static FileWriter writer;
+    
     int m_iKeyLength = 4;
     
     // keyArray Format: low, mid, high, pyramid
@@ -51,12 +53,14 @@ public class Form extends javax.swing.JFrame
      * @param array
      * @param sComment 
      */
-     public static void writeData(String directory, boolean bArray[], int array[], String sComment, String sTeamNumber)
-    {  
-        try
+     public static void openFile(String directory)
+     {
+         try
         {
-            FileWriter writer = new FileWriter(directory);
+            writer = new FileWriter(directory);
             //Integer headers
+            writer.append("Team Number");
+            writer.append(",");
             writer.append("HighGoal Autonomous");
             writer.append(",");
             writer.append("MidGoal Autonomous");
@@ -75,22 +79,34 @@ public class Form extends javax.swing.JFrame
             writer.append(",");
             
             //Boolean headers
-            writer.append("isDefensive");
+            writer.append("IsDefensive");
             writer.append(",");
-            writer.append("isPenalized");
+            writer.append("IsPenalized");
             writer.append(",");
-            writer.append("isBroken");
-            //TeamNumber
-            writer.append(sTeamNumber);
+            writer.append("IsBroken");
+            
             //New line
             writer.append("\n");
-            
+        }
+         
+        catch(IOException e)
+        {
+             e.printStackTrace();
+        }
+     }
+     
+     public static void writeData(boolean bArray[], int array[], String sComment, String sTeamNumber)
+    {  
+        try
+        {
+            //TeamNumber
+            writer.append(sTeamNumber);
+            writer.append(",");
             
             for(int index = 0; index < array.length; index++)
             {
                 writer.append(String.valueOf(array[index]));
                 writer.append(",");
-                
             }
             
             for(int index = 0; index < bArray.length; index++)
@@ -109,9 +125,13 @@ public class Form extends javax.swing.JFrame
                     writer.append(",");
                     }
             }
+            
+            //New line
+            writer.append("\n");
+            
             writer.append(sComment);
             writer.flush();
-            writer.close();
+           
         }
 
         catch(IOException e)
@@ -119,6 +139,19 @@ public class Form extends javax.swing.JFrame
              e.printStackTrace();
         } 
       }
+     
+     public static void closeFile()
+     {
+         try
+         {
+             writer.close();
+         }
+        
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+     }
     public void resetData()
     {
         m_bot1.reset();
@@ -440,12 +473,14 @@ public class Form extends javax.swing.JFrame
             }
         }
         
-        writeData("c://botData" + m_bot1.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot1.getAllBooleanData(), m_bot1.getAllIntData(), m_bot1.getComment(), m_bot1.getTeamNumber());
-        writeData("c://botData" + m_bot2.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot2.getAllBooleanData(), m_bot2.getAllIntData(), m_bot2.getComment(), m_bot2.getTeamNumber());
-        writeData("c://botData" + m_bot3.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot3.getAllBooleanData(), m_bot3.getAllIntData(), m_bot3.getComment(), m_bot3.getTeamNumber());
-        writeData("c://botData" + m_bot4.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot4.getAllBooleanData(), m_bot4.getAllIntData(), m_bot4.getComment(), m_bot4.getTeamNumber());
-        writeData("c://botData" + m_bot5.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot5.getAllBooleanData(), m_bot5.getAllIntData(), m_bot5.getComment(), m_bot5.getTeamNumber());
-        writeData("c://botData" + m_bot6.getTeamNumber() + txMatchNumber.getText() + ".csv", m_bot6.getAllBooleanData(), m_bot6.getAllIntData(), m_bot6.getComment(), m_bot6.getTeamNumber());
+        openFile(System.getProperty("user.home") + "\\Documents\\Scouting Data\\botdata" + txMatchNumber.getText() + ".csv");
+        writeData(m_bot1.getAllBooleanData(), m_bot1.getAllIntData(), m_bot1.getComment(), m_bot1.getTeamNumber());
+        writeData(m_bot2.getAllBooleanData(), m_bot2.getAllIntData(), m_bot2.getComment(), m_bot2.getTeamNumber());
+        writeData(m_bot3.getAllBooleanData(), m_bot3.getAllIntData(), m_bot3.getComment(), m_bot3.getTeamNumber());
+        writeData(m_bot4.getAllBooleanData(), m_bot4.getAllIntData(), m_bot4.getComment(), m_bot4.getTeamNumber());
+        writeData(m_bot5.getAllBooleanData(), m_bot5.getAllIntData(), m_bot5.getComment(), m_bot5.getTeamNumber());
+        writeData(m_bot6.getAllBooleanData(), m_bot6.getAllIntData(), m_bot6.getComment(), m_bot6.getTeamNumber());
+        closeFile();
 
         //        for(int index = 0; index < m_bot1.getIntArrayLength(); index++)
 //            System.out.println(m_bot1.getAllIntData()[index]);
