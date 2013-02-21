@@ -51,7 +51,7 @@ public class RobotData
     
     public void setHighGoalShotsAuto(int iShots)
     {
-        m_iDataArray[m_iLowGoalAuto] = iShots;
+        m_iDataArray[m_iHighGoalAuto] = iShots;
     }
     
     public void setMiddleGoalShotsAuto(int iShots)

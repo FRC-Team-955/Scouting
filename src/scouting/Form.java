@@ -1,12 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package scouting;
 import javax.swing.JOptionPane;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
+
 /**
  *
  * @author Fauzi
@@ -46,6 +44,7 @@ public class Form extends javax.swing.JFrame
         m_bot6 = new RobotData();        
         
     }
+    
     /**
      * Exports to .csv file.
      * @param directory
@@ -55,47 +54,18 @@ public class Form extends javax.swing.JFrame
      */
      public static void openFile(String directory)
      {
-         try
+        try
         {
             writer = new FileWriter(directory);
-            //Integer headers
-            writer.append("Team Number");
-            writer.append(",");
-            writer.append("HighGoal Autonomous");
-            writer.append(",");
-            writer.append("MidGoal Autonomous");
-            writer.append(",");
-            writer.append("LowGoal Autonomous");
-            writer.append(",");
-            writer.append("HighGoal Teleop");
-            writer.append(",");
-            writer.append("MidGoal Teleop");
-            writer.append(",");
-            writer.append("LowGoal Teleop");
-            writer.append(",");
-            writer.append("PyramidGoal");
-            writer.append(",");
-            writer.append("ClimbLevel");
-            writer.append(",");
-            
-            //Boolean headers
-            writer.append("IsDefensive");
-            writer.append(",");
-            writer.append("IsPenalized");
-            writer.append(",");
-            writer.append("IsBroken");
-            
-            //New line
-            writer.append("\n");
         }
          
         catch(IOException e)
         {
-             e.printStackTrace();
+            e.printStackTrace();
         }
-     }
+    }
      
-     public static void writeData(boolean bArray[], int array[], String sComment, String sTeamNumber)
+    public static void writeBotData(String sMatch, String sTeamNumber, int array[], boolean bArray[], String sComment)
     {  
         try
         {
@@ -110,48 +80,60 @@ public class Form extends javax.swing.JFrame
             }
             
             for(int index = 0; index < bArray.length; index++)
-            {
-                String strIndex;
-                if(bArray[index] == true) 
-                    {
-                    strIndex = "true";
-                    writer.append(strIndex); 
-                    writer.append(",");
-                    }
-                else if(bArray[index] == false)
-                    {
-                    strIndex = "false";
-                    writer.append(strIndex);
-                    writer.append(",");
-                    }
+            {              
+                writer.append(String.valueOf(bArray[index]));
+                writer.append(",");
             }
+            
+            writer.append(sComment);
+            writer.append(",");
+            
+            writer.append(sMatch);
+            writer.append(",");
             
             //New line
             writer.append("\n");
-            
-            writer.append(sComment);
             writer.flush();
-           
         }
 
         catch(IOException e)
         {
              e.printStackTrace();
         } 
-      }
+    }
      
-     public static void closeFile()
-     {
-         try
-         {
-             writer.close();
-         }
+    public static void writeHumanScored(String sScore)
+    {  
+        try
+        {
+            //Score
+            writer.append(sScore);
+            writer.append(",");
+      
+            //New line
+            writer.append("\n");
+            writer.flush();
+        }
+
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        } 
+    }
+     
+    public static void closeFile()
+    {
+        try
+        {
+            writer.close();
+        }
         
         catch(IOException e)
         {
             e.printStackTrace();
         }
-     }
+    }
+    
     public void resetData()
     {
         m_bot1.reset();
@@ -202,7 +184,7 @@ public class Form extends javax.swing.JFrame
         chkBot5Penalized.setSelected(false);
         slBot5ClimbLevel.setValue(0);
         txBot5Comments.setText("");
-        txBot5Number.setText("");
+        txBot5Number.setText("Bot 2");
         
         // Bot 6
         chkBot6Broken.setSelected(false);
@@ -210,7 +192,10 @@ public class Form extends javax.swing.JFrame
         chkBot6Penalized.setSelected(false);
         slBot6ClimbLevel.setValue(0);
         txBot6Comments.setText("");
-        txBot6Number.setText("");
+        txBot6Number.setText("Bot 3");
+        
+        txHuman1.setText("");
+        txHuman2.setText("");
     }
     
     public void submitData()
@@ -473,17 +458,26 @@ public class Form extends javax.swing.JFrame
             }
         }
         
-        openFile(System.getProperty("user.home") + "\\Documents\\Scouting Data\\botdata" + txMatchNumber.getText() + ".csv");
-        writeData(m_bot1.getAllBooleanData(), m_bot1.getAllIntData(), m_bot1.getComment(), m_bot1.getTeamNumber());
-        writeData(m_bot2.getAllBooleanData(), m_bot2.getAllIntData(), m_bot2.getComment(), m_bot2.getTeamNumber());
-        writeData(m_bot3.getAllBooleanData(), m_bot3.getAllIntData(), m_bot3.getComment(), m_bot3.getTeamNumber());
-        writeData(m_bot4.getAllBooleanData(), m_bot4.getAllIntData(), m_bot4.getComment(), m_bot4.getTeamNumber());
-        writeData(m_bot5.getAllBooleanData(), m_bot5.getAllIntData(), m_bot5.getComment(), m_bot5.getTeamNumber());
-        writeData(m_bot6.getAllBooleanData(), m_bot6.getAllIntData(), m_bot6.getComment(), m_bot6.getTeamNumber());
+        //openFile(System.getProperty("user.home") + "\\Documents\\Scouting Data\\Match " + txMatchNumber.getText() + ".csv");
+        String sMatchNumber = txMatchNumber.getText();
+        
+        // Open file
+        openFile("Scouting Data/Match " + sMatchNumber + ".csv");
+        
+        // Team red
+        writeBotData(sMatchNumber, m_bot1.getTeamNumber(), m_bot1.getAllIntData(), m_bot1.getAllBooleanData(), m_bot1.getComment());
+        writeBotData(sMatchNumber, m_bot2.getTeamNumber(), m_bot2.getAllIntData(), m_bot2.getAllBooleanData(), m_bot2.getComment());
+        writeBotData(sMatchNumber, m_bot3.getTeamNumber(), m_bot3.getAllIntData(), m_bot3.getAllBooleanData(), m_bot3.getComment());
+        writeHumanScored(txHuman1.getText());
+        
+        // Team blue
+        writeBotData(sMatchNumber, m_bot4.getTeamNumber(), m_bot4.getAllIntData(), m_bot4.getAllBooleanData(), m_bot4.getComment());
+        writeBotData(sMatchNumber, m_bot5.getTeamNumber(), m_bot5.getAllIntData(), m_bot5.getAllBooleanData(), m_bot5.getComment());
+        writeBotData(sMatchNumber, m_bot6.getTeamNumber(), m_bot6.getAllIntData(), m_bot6.getAllBooleanData(), m_bot6.getComment());
+        writeHumanScored(txHuman2.getText());
+        
+        // Close file
         closeFile();
-
-        //        for(int index = 0; index < m_bot1.getIntArrayLength(); index++)
-//            System.out.println(m_bot1.getAllIntData()[index]);
     }
     
     /**
@@ -660,13 +654,13 @@ public class Form extends javax.swing.JFrame
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(txBot1Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(chkBot1Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot1Penalized)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot1Broken)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slBot1ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -736,17 +730,17 @@ public class Form extends javax.swing.JFrame
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(txBot2Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(12, 12, 12)
                 .addComponent(chkBot2Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot2Penalized)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot2Broken)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slBot2ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txBot2Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -812,13 +806,13 @@ public class Form extends javax.swing.JFrame
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addComponent(txBot3Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(12, 12, 12)
                 .addComponent(chkBot3Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot3Penalized)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot3Broken)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(slBot3ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -898,17 +892,17 @@ public class Form extends javax.swing.JFrame
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addComponent(txBot4Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(12, 12, 12)
                 .addComponent(chkBot4Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot4Penalized)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot4Broken)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slBot4ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txBot4Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -974,13 +968,13 @@ public class Form extends javax.swing.JFrame
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addComponent(txBot5Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(chkBot5Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot5Penalized)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot5Broken)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slBot5ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1056,13 +1050,13 @@ public class Form extends javax.swing.JFrame
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addComponent(txBot6Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(12, 12, 12)
                 .addComponent(chkBot6Defensive)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot6Penalized)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkBot6Broken)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slBot6ClimbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1179,7 +1173,7 @@ public class Form extends javax.swing.JFrame
                 .addContainerGap()
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txMatchNumber)
+                .addComponent(txMatchNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -1262,7 +1256,7 @@ public class Form extends javax.swing.JFrame
                             .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))
+                        .addContainerGap(22, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(103, 103, 103))))
