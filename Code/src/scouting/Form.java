@@ -11,6 +11,7 @@ import java.io.FileWriter;
  */
 public class Form extends javax.swing.JFrame 
 {
+    int m_iMatchNumber = 00;
     RobotData m_bot1;
     RobotData m_bot2;
     RobotData m_bot3;
@@ -196,6 +197,7 @@ public class Form extends javax.swing.JFrame
         
         txHuman1.setText("");
         txHuman2.setText("");
+        txMatchNumber.setText(String.valueOf(++m_iMatchNumber));
     }
     
     public void submitData()
@@ -459,7 +461,8 @@ public class Form extends javax.swing.JFrame
         }
         
         //openFile(System.getProperty("user.home") + "\\Documents\\Scouting Data\\Match " + txMatchNumber.getText() + ".csv");
-        String sMatchNumber = txMatchNumber.getText();
+        m_iMatchNumber = Integer.parseInt(txMatchNumber.getText());
+        String sMatchNumber = String.valueOf(m_iMatchNumber);
         
         // Open file
         openFile("Scouting Data/Match " + sMatchNumber + ".csv");
@@ -1163,7 +1166,7 @@ public class Form extends javax.swing.JFrame
         jLabel14.setText("Match Number:");
 
         txMatchNumber.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txMatchNumber.setText("XX");
+        txMatchNumber.setText("0");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1255,7 +1258,7 @@ public class Form extends javax.swing.JFrame
                             .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))
+                        .addContainerGap(22, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(103, 103, 103))))
