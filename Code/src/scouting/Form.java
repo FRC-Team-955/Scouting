@@ -66,7 +66,7 @@ public class Form extends javax.swing.JFrame
         }
     }
      
-    public static void writeBotData(String sMatch, String sTeamNumber, int array[], boolean bArray[], String sComment)
+    public static void writeBotData(String sMatch, String sTeamNumber, int array[], boolean bArray[], String sComment, String sHumanScored, String sColor)
     {  
         try
         {
@@ -89,6 +89,12 @@ public class Form extends javax.swing.JFrame
             writer.append(sComment);
             writer.append(",");
             
+            writer.append(sHumanScored);
+            writer.append(",");
+            
+            writer.append(sColor);
+            writer.append(",");
+            
             writer.append(sMatch);
             writer.append(",");
             
@@ -100,25 +106,6 @@ public class Form extends javax.swing.JFrame
         catch(IOException e)
         {
              e.printStackTrace();
-        } 
-    }
-     
-    public static void writeHumanScored(String sScore)
-    {  
-        try
-        {
-            //Score
-            writer.append(sScore);
-            writer.append(",");
-      
-            //New line
-            writer.append("\n");
-            writer.flush();
-        }
-
-        catch(IOException e)
-        {
-            e.printStackTrace();
         } 
     }
      
@@ -461,23 +448,27 @@ public class Form extends javax.swing.JFrame
         }
         
         //openFile(System.getProperty("user.home") + "\\Documents\\Scouting Data\\Match " + txMatchNumber.getText() + ".csv");
-        m_iMatchNumber = Integer.parseInt(txMatchNumber.getText());
+        try
+        {
+            m_iMatchNumber = Integer.parseInt(txMatchNumber.getText());
+        }
+        
+        catch(NumberFormatException e){}
+        
         String sMatchNumber = String.valueOf(m_iMatchNumber);
         
         // Open file
         openFile("Scouting Data/Match " + sMatchNumber + ".csv");
         
         // Team red
-        writeBotData(sMatchNumber, m_bot1.getTeamNumber(), m_bot1.getAllIntData(), m_bot1.getAllBooleanData(), m_bot1.getComment());
-        writeBotData(sMatchNumber, m_bot2.getTeamNumber(), m_bot2.getAllIntData(), m_bot2.getAllBooleanData(), m_bot2.getComment());
-        writeBotData(sMatchNumber, m_bot3.getTeamNumber(), m_bot3.getAllIntData(), m_bot3.getAllBooleanData(), m_bot3.getComment());
-        writeHumanScored(txHuman1.getText());
+        writeBotData(sMatchNumber, m_bot1.getTeamNumber(), m_bot1.getAllIntData(), m_bot1.getAllBooleanData(), m_bot1.getComment(), txHuman1.getText(), "red");
+        writeBotData(sMatchNumber, m_bot2.getTeamNumber(), m_bot2.getAllIntData(), m_bot2.getAllBooleanData(), m_bot2.getComment(), txHuman1.getText(), "red");
+        writeBotData(sMatchNumber, m_bot3.getTeamNumber(), m_bot3.getAllIntData(), m_bot3.getAllBooleanData(), m_bot3.getComment(), txHuman1.getText(), "red");
         
         // Team blue
-        writeBotData(sMatchNumber, m_bot4.getTeamNumber(), m_bot4.getAllIntData(), m_bot4.getAllBooleanData(), m_bot4.getComment());
-        writeBotData(sMatchNumber, m_bot5.getTeamNumber(), m_bot5.getAllIntData(), m_bot5.getAllBooleanData(), m_bot5.getComment());
-        writeBotData(sMatchNumber, m_bot6.getTeamNumber(), m_bot6.getAllIntData(), m_bot6.getAllBooleanData(), m_bot6.getComment());
-        writeHumanScored(txHuman2.getText());
+        writeBotData(sMatchNumber, m_bot4.getTeamNumber(), m_bot4.getAllIntData(), m_bot4.getAllBooleanData(), m_bot4.getComment(), txHuman2.getText(), "blue");
+        writeBotData(sMatchNumber, m_bot5.getTeamNumber(), m_bot5.getAllIntData(), m_bot5.getAllBooleanData(), m_bot5.getComment(), txHuman2.getText(), "blue");
+        writeBotData(sMatchNumber, m_bot6.getTeamNumber(), m_bot6.getAllIntData(), m_bot6.getAllBooleanData(), m_bot6.getComment(), txHuman2.getText(), "blue");
         
         // Close file
         closeFile();
