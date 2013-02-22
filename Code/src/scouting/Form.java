@@ -462,7 +462,7 @@ public class Form extends javax.swing.JFrame
         String sMatchNumber = txMatchNumber.getText();
         
         // Open file
-        openFile("Scouting Data/Match " + sMatchNumber + ".csv");
+        openFile("../Scouting Data/Match " + sMatchNumber + ".csv");
         
         // Team red
         writeBotData(sMatchNumber, m_bot1.getTeamNumber(), m_bot1.getAllIntData(), m_bot1.getAllBooleanData(), m_bot1.getComment());
