@@ -53,11 +53,13 @@ public class Form extends javax.swing.JFrame
      * @param array
      * @param sComment 
      */
-     public static void openFile(String directory)
+     public static void openFile(String sDirectory)
      {
         try
         {
-            writer = new FileWriter(directory);
+            File file = new File(sDirectory);
+            file.getParentFile().mkdirs();
+            writer = new FileWriter(file);
         }
          
         catch(IOException e)
