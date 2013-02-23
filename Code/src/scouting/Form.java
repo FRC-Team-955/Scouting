@@ -68,10 +68,28 @@ public class Form extends javax.swing.JFrame
         }
     }
      
+    public static String eraseComma(String sData)
+    {
+        String sNoComma = "";
+        
+        for(int i = 0; i < sData.length(); i++)
+            if(sData.charAt(i) != ',')
+                sNoComma += sData.charAt(i);
+        
+        return sNoComma;
+    }
+     
     public static void writeBotData(String sMatch, String sTeamNumber, int array[], boolean bArray[], String sComment, String sHumanScored, String sColor)
     {  
         try
         {
+            // Take out all commas
+            sMatch = eraseComma(sMatch);
+            sTeamNumber = eraseComma(sTeamNumber);
+            sComment = eraseComma(sComment);
+            sHumanScored = eraseComma(sHumanScored);
+            sColor = eraseComma(sColor);
+            
             //TeamNumber
             writer.append(sTeamNumber);
             writer.append(",");
