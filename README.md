@@ -1,4 +1,0 @@
-Scouting
-========
-
-Scouting Application
