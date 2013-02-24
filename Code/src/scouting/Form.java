@@ -1,5 +1,6 @@
 
 package scouting;
+import javax.swing.*;
 import javax.swing.JOptionPane;
 import java.io.File;
 import java.io.IOException;
@@ -11,39 +12,101 @@ import java.io.FileWriter;
  */
 public class Form extends javax.swing.JFrame 
 {
-    int m_iMatchNumber = 00;
-    RobotData m_bot1;
-    RobotData m_bot2;
-    RobotData m_bot3;
-    RobotData m_bot4;
-    RobotData m_bot5;
-    RobotData m_bot6;
-    
+    static int m_iMatchNumber = 0;
+    static final int m_iAmountOfBots = 6;
     static FileWriter writer;
     
-    int m_iKeyLength = 4;
-    
     // keyArray Format: low, mid, high, pyramid
-    char m_cBot1Key[] = {'q', 'a', 'z', '1'};
-    char m_cBot2Key[] = {'w', 's', 'x', '2'};
-    char m_cBot3Key[] = {'e', 'd', 'c', '3'};
-    char m_cBot4Key[] = {'r', 'f', 'v', '4'};
-    char m_cBot5Key[] = {'t', 'g', 'b', '5'};
-    char m_cBot6Key[] = {'y', 'h', 'n', '6'};
+    static char m_cBotKeys[][] = {
+        {'q', 'a', 'z', '1'}, 
+        {'w', 's', 'x', '2'}, 
+        {'e', 'd', 'c', '3'}, 
+        {'r', 'f', 'v', '4'}, 
+        {'t', 'g', 'b', '5'}, 
+        {'y', 'h', 'n', '6'}}; 
+    
+    static int m_iBotScoreDataAuto[][] = {
+        {0, 0, 0, 0}, 
+        {0, 0, 0, 0}, 
+        {0, 0, 0, 0}, 
+        {0, 0, 0, 0}, 
+        {0, 0, 0, 0}, 
+        {0, 0, 0, 0}};
+    
+    static int m_iBotScoreDataTeleop[][] = {
+        {0, 0, 0, 0}, 
+        {0, 0, 0, 0}, 
+        {0, 0, 0, 0}, 
+        {0, 0, 0, 0}, 
+        {0, 0, 0, 0}, 
+        {0, 0, 0, 0}};
+    
+    static int m_iBotClimbData[] = {0, 0, 0, 0, 0, 0};
+    
+    static boolean m_bBotBooleanData[][] = {
+        {false, false, false}, 
+        {false, false, false}, 
+        {false, false, false}, 
+        {false, false, false}, 
+        {false, false, false}, 
+        {false, false, false}};
+    
+    static String m_sBotStringData[][] = {
+        {"", ""}, 
+        {"", ""},
+        {"", ""},
+        {"", ""},
+        {"", ""},
+        {"", ""}};
+    
+    // Bot defensive, broken, penalized
+    JCheckBox[][] m_checkBoxes;
+    
+    // Bot Climb level 
+    JSlider[] m_sliders;
+    
+    // Team numbers, comments
+    JTextField[][] m_textBoxes;
     
     /**
      * Creates new form Form
      */
     public Form() 
     {
-        initComponents();
-        m_bot1 = new RobotData();
-        m_bot2 = new RobotData();
-        m_bot3 = new RobotData();
-        m_bot4 = new RobotData();
-        m_bot5 = new RobotData();
-        m_bot6 = new RobotData();        
+        initComponents(); 
         
+        m_checkBoxes = new JCheckBox[][]{
+            {chkBot1Defensive, chkBot2Defensive, chkBot3Defensive, chkBot4Defensive, chkBot5Defensive, chkBot6Defensive},
+            {chkBot1Broken, chkBot2Broken, chkBot3Broken, chkBot4Broken, chkBot5Broken, chkBot6Broken},
+            {chkBot1Penalized, chkBot2Penalized, chkBot3Penalized, chkBot4Penalized, chkBot5Penalized, chkBot6Penalized}};
+        
+        m_sliders = new JSlider[] 
+            {slBot1ClimbLevel, slBot2ClimbLevel, slBot3ClimbLevel, slBot4ClimbLevel, slBot5ClimbLevel, slBot6ClimbLevel};
+        
+        m_textBoxes = new JTextField[][]{
+            {txBot1Number, txBot1Comments}, 
+            {txBot2Number, txBot2Comments},
+            {txBot3Number, txBot3Comments},
+            {txBot4Number, txBot4Comments},
+            {txBot5Number, txBot5Comments},
+            {txBot6Number, txBot6Comments}};
+    }
+    
+    // Combines two int arrays
+    public static int[] combineIntArrays(int iArrayOne[], int iArrayTwo[])
+    {
+        int[] iReturnArray = new int[iArrayOne.length + iArrayTwo.length];
+        int index = -1;
+        
+        while(++index < iArrayOne.length)
+            iReturnArray[index] = iArrayOne[index];
+        
+        index--;
+        
+        while(++index < iArrayOne.length + iArrayTwo.length)
+            iReturnArray[index] = iArrayTwo[index - iArrayOne.length];
+        
+        return iReturnArray;
     }
     
     /**
@@ -79,44 +142,40 @@ public class Form extends javax.swing.JFrame
         return sNoComma;
     }
      
-    public static void writeBotData(String sMatch, String sTeamNumber, int array[], boolean bArray[], String sComment, String sHumanScored, String sColor)
+    public static void writeBotData(String sMatch, String sColor, String sHumanScore, String sArray[], int iArray[], boolean bArray[])
     {  
         try
         {
-            // Take out all commas
-            sMatch = eraseComma(sMatch);
-            sTeamNumber = eraseComma(sTeamNumber);
-            sComment = eraseComma(sComment);
-            sHumanScored = eraseComma(sHumanScored);
-            sColor = eraseComma(sColor);
-            
-            //TeamNumber
-            writer.append(sTeamNumber);
+            // Take out all commas, write string
+            writer.append(eraseComma(sMatch));
             writer.append(",");
             
-            for(int index = 0; index < array.length; index++)
+            writer.append(eraseComma(sColor));
+            writer.append(",");
+            
+            writer.append(eraseComma(sHumanScore));
+            writer.append(",");
+            
+            for(int index = 0; index < sArray.length; index++)
             {
-                writer.append(String.valueOf(array[index]));
+                sArray[index] = eraseComma(sArray[index]);
+                writer.append(sArray[index]);
                 writer.append(",");
             }
             
+            // Write ints
+            for(int index = 0; index < iArray.length; index++)
+            {
+                writer.append(String.valueOf(iArray[index]));
+                writer.append(",");
+            }
+            
+            // Write booleans
             for(int index = 0; index < bArray.length; index++)
             {              
                 writer.append(String.valueOf(bArray[index]));
                 writer.append(",");
             }
-            
-            writer.append(sComment);
-            writer.append(",");
-            
-            writer.append(sHumanScored);
-            writer.append(",");
-            
-            writer.append(sColor);
-            writer.append(",");
-            
-            writer.append(sMatch);
-            writer.append(",");
             
             //New line
             writer.append("\n");
@@ -144,63 +203,19 @@ public class Form extends javax.swing.JFrame
     
     public void resetData()
     {
-        m_bot1.reset();
-        m_bot2.reset();
-        m_bot3.reset();
-        m_bot4.reset();
-        m_bot5.reset();
-        m_bot6.reset();  
+        for(int iOuter = 0; iOuter < m_checkBoxes.length; iOuter++)
+            for(int iInner = 0; iInner < m_checkBoxes[iOuter].length; iInner++)
+                m_checkBoxes[iOuter][iInner].setSelected(false);
         
+        for(int iOuter = 0; iOuter < m_textBoxes.length; iOuter++)
+            for(int iInner = 0; iInner < m_textBoxes[iOuter].length; iInner++)
+                m_textBoxes[iOuter][iInner].setText("");
+        
+        for(int index = 0; index < m_sliders.length; index++)
+            m_sliders[index].setValue(0);
+            
         txAuto.setText("");
         txTeleop.setText("");
-        
-        // Bot 1
-        chkBot1Broken.setSelected(false);
-        chkBot1Defensive.setSelected(false);
-        chkBot1Penalized.setSelected(false);
-        slBot1ClimbLevel.setValue(0);
-        txBot1Comments.setText("");
-        txBot1Number.setText("Bot 1");
-        
-        // Bot 2
-        chkBot2Broken.setSelected(false);
-        chkBot2Defensive.setSelected(false);
-        chkBot2Penalized.setSelected(false);
-        slBot2ClimbLevel.setValue(0);
-        txBot2Comments.setText("");
-        txBot2Number.setText("Bot 2");
-        
-        // Bot 3
-        chkBot3Broken.setSelected(false);
-        chkBot3Defensive.setSelected(false);
-        chkBot3Penalized.setSelected(false);
-        slBot3ClimbLevel.setValue(0);
-        txBot3Comments.setText("");
-        txBot3Number.setText("Bot 3");
-        
-        // Bot 4
-        chkBot4Broken.setSelected(false);
-        chkBot4Defensive.setSelected(false);
-        chkBot4Penalized.setSelected(false);
-        slBot4ClimbLevel.setValue(0);
-        txBot4Comments.setText("");
-        txBot4Number.setText("Bot 1");
-        
-        // Bot 5
-        chkBot5Broken.setSelected(false);
-        chkBot5Defensive.setSelected(false);
-        chkBot5Penalized.setSelected(false);
-        slBot5ClimbLevel.setValue(0);
-        txBot5Comments.setText("");
-        txBot5Number.setText("Bot 2");
-        
-        // Bot 6
-        chkBot6Broken.setSelected(false);
-        chkBot6Defensive.setSelected(false);
-        chkBot6Penalized.setSelected(false);
-        slBot6ClimbLevel.setValue(0);
-        txBot6Comments.setText("");
-        txBot6Number.setText("Bot 3");
         
         txHuman1.setText("");
         txHuman2.setText("");
@@ -209,263 +224,38 @@ public class Form extends javax.swing.JFrame
     
     public void submitData()
     {
-        // Bot 1
-        m_bot1.setTeamNumber(txBot1Number.getText());
-        m_bot1.setBroken(chkBot1Broken.isSelected());
-        m_bot1.setDefensive(chkBot1Defensive.isSelected());
-        m_bot1.setPenalized(chkBot1Penalized.isSelected());
-        m_bot1.setClimbLevel(slBot1ClimbLevel.getValue());
-        m_bot1.setComment(txBot1Comments.getText());
+        for(int iOuter = 0; iOuter < m_checkBoxes.length; iOuter++)
+            for(int iInner = 0; iInner < m_checkBoxes[iOuter].length; iInner++)
+                m_bBotBooleanData[iOuter][iInner] = m_checkBoxes[iOuter][iInner].isSelected();
         
-        // Bot 2
-        m_bot2.setTeamNumber(txBot2Number.getText());
-        m_bot2.setBroken(chkBot2Broken.isSelected());
-        m_bot2.setDefensive(chkBot2Defensive.isSelected());
-        m_bot2.setPenalized(chkBot2Penalized.isSelected());
-        m_bot2.setClimbLevel(slBot2ClimbLevel.getValue());
-        m_bot2.setComment(txBot2Comments.getText());
+        for(int iOuter = 0; iOuter < m_textBoxes.length; iOuter++)
+            for(int iInner = 0; iInner < m_textBoxes[iOuter].length; iInner++)
+                m_sBotStringData[iOuter][iInner] = m_textBoxes[iOuter][iInner].getText();
         
-        // Bot 3
-        m_bot3.setTeamNumber(txBot3Number.getText());
-        m_bot3.setBroken(chkBot3Broken.isSelected());
-        m_bot3.setDefensive(chkBot3Defensive.isSelected());
-        m_bot3.setPenalized(chkBot3Penalized.isSelected());
-        m_bot3.setClimbLevel(slBot3ClimbLevel.getValue());
-        m_bot3.setComment(txBot3Comments.getText());
+        for(int index = 0; index < m_sliders.length; index++)
+            m_iBotClimbData[index] = m_sliders[index].getValue();
         
-        // Bot 4
-        m_bot4.setTeamNumber(txBot4Number.getText());
-        m_bot4.setBroken(chkBot4Broken.isSelected());
-        m_bot4.setDefensive(chkBot4Defensive.isSelected());
-        m_bot4.setPenalized(chkBot4Penalized.isSelected());
-        m_bot4.setClimbLevel(slBot4ClimbLevel.getValue());
-        m_bot4.setComment(txBot4Comments.getText());
         
-        // Bot 5
-        m_bot5.setTeamNumber(txBot5Number.getText());
-        m_bot5.setBroken(chkBot5Broken.isSelected());
-        m_bot5.setDefensive(chkBot5Defensive.isSelected());
-        m_bot5.setPenalized(chkBot5Penalized.isSelected());
-        m_bot5.setClimbLevel(slBot5ClimbLevel.getValue());
-        m_bot5.setComment(txBot5Comments.getText());
+        String sDataAuto = txAuto.getText();
+        String sDataTeleop = txTeleop.getText();
         
-        // Bot 6
-        m_bot6.setTeamNumber(txBot6Number.getText());
-        m_bot6.setBroken(chkBot6Broken.isSelected());
-        m_bot6.setDefensive(chkBot6Defensive.isSelected());
-        m_bot6.setPenalized(chkBot6Penalized.isSelected());
-        m_bot6.setClimbLevel(slBot6ClimbLevel.getValue());
-        m_bot6.setComment(txBot6Comments.getText());
-        
-        String sData = txAuto.getText();
-        
-        // Autonomous
-        for(int keyIndex = 0; keyIndex < m_iKeyLength; keyIndex++)
-        {
-            for(int dataIndex = 0; dataIndex < sData.length(); dataIndex++)
-            {
-                // Bot 1
-                if(sData.charAt(dataIndex) == m_cBot1Key[keyIndex])
+        for(int iBot = 0; iBot < m_cBotKeys.length; iBot++)
+        {    
+            for(int iKey = 0; iKey < m_cBotKeys[iBot].length; iKey++)
+            {    
+                for(int iDataAutoIndex = 0; iDataAutoIndex < sDataAuto.length(); iDataAutoIndex++)
                 {
-                    if(keyIndex == 0)
-                        m_bot1.setLowGoalShotsAuto(m_bot1.getLowGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot1.setMiddleGoalShotsAuto(m_bot1.getMiddleGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot1.setHighGoalShotsAuto(m_bot1.getHighGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot1.setPryamidGoalShots(m_bot1.getPryamidGoalShots() + 1);
+                    if(m_cBotKeys[iBot][iKey] == sDataAuto.charAt(iDataAutoIndex))
+                        m_iBotScoreDataAuto[iBot][iKey]++;
                 }
                 
-                // Bot 2
-                else if(sData.charAt(dataIndex) == m_cBot2Key[keyIndex])
+                for(int iDataTeleopIndex = 0; iDataTeleopIndex < sDataTeleop.length(); iDataTeleopIndex++)
                 {
-                    if(keyIndex == 0)
-                        m_bot2.setLowGoalShotsAuto(m_bot2.getLowGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot2.setMiddleGoalShotsAuto(m_bot2.getMiddleGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot2.setHighGoalShotsAuto(m_bot2.getHighGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot2.setPryamidGoalShots(m_bot2.getPryamidGoalShots() + 1);
-                }
-                
-                // Bot 3
-                else if(sData.charAt(dataIndex) == m_cBot3Key[keyIndex])
-                {
-                    if(keyIndex == 0)
-                        m_bot3.setLowGoalShotsAuto(m_bot3.getLowGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot3.setMiddleGoalShotsAuto(m_bot3.getMiddleGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot3.setHighGoalShotsAuto(m_bot3.getHighGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot3.setPryamidGoalShots(m_bot3.getPryamidGoalShots() + 1);
-                }
-                
-                // Bot 4
-                else if(sData.charAt(dataIndex) == m_cBot4Key[keyIndex])
-                {
-                    if(keyIndex == 0)
-                        m_bot4.setLowGoalShotsAuto(m_bot4.getLowGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot4.setMiddleGoalShotsAuto(m_bot4.getMiddleGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot4.setHighGoalShotsAuto(m_bot4.getHighGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot4.setPryamidGoalShots(m_bot4.getPryamidGoalShots() + 1);
-                }
-                
-                // Bot 5
-                else if(sData.charAt(dataIndex) == m_cBot5Key[keyIndex])
-                {
-                    if(keyIndex == 0)
-                        m_bot5.setLowGoalShotsAuto(m_bot5.getLowGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot5.setMiddleGoalShotsAuto(m_bot5.getMiddleGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot5.setHighGoalShotsAuto(m_bot5.getHighGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot5.setPryamidGoalShots(m_bot5.getPryamidGoalShots() + 1);
-                }
-                
-                // Bot 6
-                else if(sData.charAt(dataIndex) == m_cBot6Key[keyIndex])
-                {
-                    if(keyIndex == 0)
-                        m_bot6.setLowGoalShotsAuto(m_bot6.getLowGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot6.setMiddleGoalShotsAuto(m_bot6.getMiddleGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot6.setHighGoalShotsAuto(m_bot6.getHighGoalShotsAuto() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot6.setPryamidGoalShots(m_bot6.getPryamidGoalShots() + 1);
+                    if(m_cBotKeys[iBot][iKey] == sDataTeleop.charAt(iDataTeleopIndex))
+                        m_iBotScoreDataAuto[iBot][iKey]++;
                 }
             }
-        }
-        
-        sData = txTeleop.getText();
-        
-        // Teleop
-        for(int keyIndex = 0; keyIndex < m_iKeyLength; keyIndex++)
-        {
-            for(int dataIndex = 0; dataIndex < sData.length(); dataIndex++)
-            {
-                // Bot 1
-                if(sData.charAt(dataIndex) == m_cBot1Key[keyIndex])
-                {
-                    if(keyIndex == 0)
-                        m_bot1.setLowGoalShotsTeleop(m_bot1.getLowGoalShotsTeleop()+ 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot1.setMiddleGoalShotsTeleop(m_bot1.getMiddleGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot1.setHighGoalShotsTeleop(m_bot1.getHighGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot1.setPryamidGoalShots(m_bot1.getPryamidGoalShots() + 1);
-                }
-                
-                // Bot 2
-                else if(sData.charAt(dataIndex) == m_cBot2Key[keyIndex])
-                {
-                    if(keyIndex == 0)
-                        m_bot2.setLowGoalShotsTeleop(m_bot2.getLowGoalShotsTeleop()+ 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot2.setMiddleGoalShotsTeleop(m_bot2.getMiddleGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot2.setHighGoalShotsTeleop(m_bot2.getHighGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot2.setPryamidGoalShots(m_bot2.getPryamidGoalShots() + 1);
-                }
-                
-                // Bot 3
-                else if(sData.charAt(dataIndex) == m_cBot3Key[keyIndex])
-                {
-                    if(keyIndex == 0)
-                        m_bot3.setLowGoalShotsTeleop(m_bot3.getLowGoalShotsTeleop()+ 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot3.setMiddleGoalShotsTeleop(m_bot3.getMiddleGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot3.setHighGoalShotsTeleop(m_bot3.getHighGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot3.setPryamidGoalShots(m_bot3.getPryamidGoalShots() + 1);
-                }
-                
-                // Bot 4
-                else if(sData.charAt(dataIndex) == m_cBot4Key[keyIndex])
-                {
-                    if(keyIndex == 0)
-                        m_bot4.setLowGoalShotsTeleop(m_bot4.getLowGoalShotsTeleop()+ 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot4.setMiddleGoalShotsTeleop(m_bot4.getMiddleGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot4.setHighGoalShotsTeleop(m_bot4.getHighGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot4.setPryamidGoalShots(m_bot4.getPryamidGoalShots() + 1);
-                }
-                
-                // Bot 5
-                else if(sData.charAt(dataIndex) == m_cBot5Key[keyIndex])
-                {
-                    if(keyIndex == 0)
-                        m_bot5.setLowGoalShotsTeleop(m_bot5.getLowGoalShotsTeleop()+ 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot5.setMiddleGoalShotsTeleop(m_bot5.getMiddleGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot5.setHighGoalShotsTeleop(m_bot5.getHighGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot5.setPryamidGoalShots(m_bot5.getPryamidGoalShots() + 1);
-                }
-                
-                // Bot 6
-                else if(sData.charAt(dataIndex) == m_cBot6Key[keyIndex])
-                {
-                    if(keyIndex == 0)
-                        m_bot6.setLowGoalShotsTeleop(m_bot6.getLowGoalShotsTeleop()+ 1);
-                    
-                    else if(keyIndex == 1)
-                        m_bot6.setMiddleGoalShotsTeleop(m_bot6.getMiddleGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 2)
-                        m_bot6.setHighGoalShotsTeleop(m_bot6.getHighGoalShotsTeleop() + 1);
-                    
-                    else if(keyIndex == 3)
-                        m_bot6.setPryamidGoalShots(m_bot6.getPryamidGoalShots() + 1);
-                }
-            }
-        }
+        }        
         
         //openFile(System.getProperty("user.home") + "\\Documents\\Scouting Data\\Match " + txMatchNumber.getText() + ".csv");
         try
@@ -480,16 +270,16 @@ public class Form extends javax.swing.JFrame
         // Open file
         openFile("Scouting Data/Match " + sMatchNumber + ".csv");
         
-        // Team red
-        writeBotData(sMatchNumber, m_bot1.getTeamNumber(), m_bot1.getAllIntData(), m_bot1.getAllBooleanData(), m_bot1.getComment(), txHuman1.getText(), "red");
-        writeBotData(sMatchNumber, m_bot2.getTeamNumber(), m_bot2.getAllIntData(), m_bot2.getAllBooleanData(), m_bot2.getComment(), txHuman1.getText(), "red");
-        writeBotData(sMatchNumber, m_bot3.getTeamNumber(), m_bot3.getAllIntData(), m_bot3.getAllBooleanData(), m_bot3.getComment(), txHuman1.getText(), "red");
-        
-        // Team blue
-        writeBotData(sMatchNumber, m_bot4.getTeamNumber(), m_bot4.getAllIntData(), m_bot4.getAllBooleanData(), m_bot4.getComment(), txHuman2.getText(), "blue");
-        writeBotData(sMatchNumber, m_bot5.getTeamNumber(), m_bot5.getAllIntData(), m_bot5.getAllBooleanData(), m_bot5.getComment(), txHuman2.getText(), "blue");
-        writeBotData(sMatchNumber, m_bot6.getTeamNumber(), m_bot6.getAllIntData(), m_bot6.getAllBooleanData(), m_bot6.getComment(), txHuman2.getText(), "blue");
-        
+        // Write data to files.
+        for(int index = 0; index < m_iAmountOfBots; index++)
+        {
+            if(index < 3)            
+                writeBotData(sMatchNumber, "red", txHuman1.getText(), m_sBotStringData[index], combineIntArrays(m_iBotScoreDataAuto[index], m_iBotScoreDataTeleop[index]), m_bBotBooleanData[index]);
+            
+            else
+                writeBotData(sMatchNumber, "blue", txHuman2.getText(), m_sBotStringData[index], combineIntArrays(m_iBotScoreDataAuto[index], m_iBotScoreDataTeleop[index]), m_bBotBooleanData[index]);
+        }
+            
         // Close file
         closeFile();
     }
