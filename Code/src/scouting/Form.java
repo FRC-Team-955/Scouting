@@ -218,7 +218,14 @@ public class Form extends javax.swing.JFrame
         
         for(int index = 0; index < m_sliders.length; index++)
             m_sliders[index].setValue(0);
-            
+        
+        txBot1Number.setText("Bot 1");
+        txBot2Number.setText("Bot 2");
+        txBot3Number.setText("Bot 3");
+        txBot4Number.setText("Bot 1");
+        txBot5Number.setText("Bot 2");
+        txBot6Number.setText("Bot 3");
+        
         txAuto.setText("");
         txTeleop.setText("");
         txHuman1.setText("");
