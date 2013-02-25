@@ -76,9 +76,12 @@ public class Form extends javax.swing.JFrame
         initComponents(); 
         
         m_checkBoxes = new JCheckBox[][]{
-            {chkBot1Defensive, chkBot2Defensive, chkBot3Defensive, chkBot4Defensive, chkBot5Defensive, chkBot6Defensive},
-            {chkBot1Broken, chkBot2Broken, chkBot3Broken, chkBot4Broken, chkBot5Broken, chkBot6Broken},
-            {chkBot1Penalized, chkBot2Penalized, chkBot3Penalized, chkBot4Penalized, chkBot5Penalized, chkBot6Penalized}};
+            {chkBot1Defensive, chkBot1Penalized, chkBot1Broken},
+            {chkBot2Defensive, chkBot2Penalized, chkBot2Broken},
+            {chkBot3Defensive, chkBot3Penalized, chkBot3Broken},
+            {chkBot4Defensive, chkBot4Penalized, chkBot4Broken},
+            {chkBot5Defensive, chkBot5Penalized, chkBot5Broken},
+            {chkBot6Defensive, chkBot6Penalized, chkBot6Broken}};         
         
         m_sliders = new JSlider[] 
             {slBot1ClimbLevel, slBot2ClimbLevel, slBot3ClimbLevel, slBot4ClimbLevel, slBot5ClimbLevel, slBot6ClimbLevel};
@@ -93,9 +96,9 @@ public class Form extends javax.swing.JFrame
     }
     
     // Combines two int arrays
-    public static int[] combineIntArrays(int iArrayOne[], int iArrayTwo[])
+    public static int[] combineIntArrays(int iArrayOne[], int iArrayTwo[], int iNum)
     {
-        int[] iReturnArray = new int[iArrayOne.length + iArrayTwo.length];
+        int[] iReturnArray = new int[iArrayOne.length + iArrayTwo.length + 1];
         int index = -1;
         
         while(++index < iArrayOne.length)
@@ -105,6 +108,8 @@ public class Form extends javax.swing.JFrame
         
         while(++index < iArrayOne.length + iArrayTwo.length)
             iReturnArray[index] = iArrayTwo[index - iArrayOne.length];
+        
+        iReturnArray[index] = iNum;
         
         return iReturnArray;
     }
@@ -216,7 +221,6 @@ public class Form extends javax.swing.JFrame
             
         txAuto.setText("");
         txTeleop.setText("");
-        
         txHuman1.setText("");
         txHuman2.setText("");
         txMatchNumber.setText(String.valueOf(++m_iMatchNumber));
@@ -252,7 +256,7 @@ public class Form extends javax.swing.JFrame
                 for(int iDataTeleopIndex = 0; iDataTeleopIndex < sDataTeleop.length(); iDataTeleopIndex++)
                 {
                     if(m_cBotKeys[iBot][iKey] == sDataTeleop.charAt(iDataTeleopIndex))
-                        m_iBotScoreDataAuto[iBot][iKey]++;
+                        m_iBotScoreDataTeleop[iBot][iKey]++;
                 }
             }
         }        
@@ -274,10 +278,10 @@ public class Form extends javax.swing.JFrame
         for(int index = 0; index < m_iAmountOfBots; index++)
         {
             if(index < 3)            
-                writeBotData(sMatchNumber, "red", txHuman1.getText(), m_sBotStringData[index], combineIntArrays(m_iBotScoreDataAuto[index], m_iBotScoreDataTeleop[index]), m_bBotBooleanData[index]);
+                writeBotData(sMatchNumber, "red", txHuman1.getText(), m_sBotStringData[index], combineIntArrays(m_iBotScoreDataAuto[index], m_iBotScoreDataTeleop[index], m_iBotClimbData[index]), m_bBotBooleanData[index]);
             
             else
-                writeBotData(sMatchNumber, "blue", txHuman2.getText(), m_sBotStringData[index], combineIntArrays(m_iBotScoreDataAuto[index], m_iBotScoreDataTeleop[index]), m_bBotBooleanData[index]);
+                writeBotData(sMatchNumber, "blue", txHuman2.getText(), m_sBotStringData[index], combineIntArrays(m_iBotScoreDataAuto[index], m_iBotScoreDataTeleop[index], m_iBotClimbData[index]), m_bBotBooleanData[index]);
         }
             
         // Close file
