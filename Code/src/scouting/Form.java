@@ -12,7 +12,7 @@ import java.io.FileWriter;
  */
 public class Form extends javax.swing.JFrame 
 {
-    static int m_iMatchNumber = 0;
+    static int m_iMatchNumber = 1;
     static final int m_iAmountOfBots = 6;
     static FileWriter writer;
     
