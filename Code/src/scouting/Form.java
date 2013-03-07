@@ -25,6 +25,7 @@ public class Form extends javax.swing.JFrame
         {'t', 'g', 'b', '5'}, 
         {'y', 'h', 'n', '6'}}; 
     
+    // Data for bots starts ----------------------------------------------------
     static int m_iBotScoreDataAuto[][] = {
         {0, 0, 0, 0}, 
         {0, 0, 0, 0}, 
@@ -58,6 +59,8 @@ public class Form extends javax.swing.JFrame
         {"", ""},
         {"", ""},
         {"", ""}};
+    // Data for bots end -------------------------------------------------------
+    
     
     // Bot defensive, broken, penalized
     JCheckBox[][] m_checkBoxes;
@@ -208,6 +211,26 @@ public class Form extends javax.swing.JFrame
     
     public void resetData()
     {
+        
+        for(int iOuter = 0; iOuter < m_iBotScoreDataAuto.length; iOuter++)
+            for(int iInner = 0; iInner < m_iBotScoreDataAuto[iOuter].length; iInner++)
+                m_iBotScoreDataAuto[iOuter][iInner] = 0;
+        
+        for(int iOuter = 0; iOuter < m_iBotScoreDataTeleop.length; iOuter++)
+            for(int iInner = 0; iInner < m_iBotScoreDataTeleop[iOuter].length; iInner++)
+                m_iBotScoreDataTeleop[iOuter][iInner] = 0;
+        
+        for(int index = 0; index < m_iBotClimbData.length; index++)
+            m_iBotClimbData[index] = 0;
+        
+        for(int iOuter = 0; iOuter < m_bBotBooleanData.length; iOuter++)
+            for(int iInner = 0; iInner < m_bBotBooleanData[iOuter].length; iInner++)
+                m_bBotBooleanData[iOuter][iInner] = false;
+        
+        for(int iOuter = 0; iOuter < m_sBotStringData.length; iOuter++)
+            for(int iInner = 0; iInner < m_sBotStringData[iOuter].length; iInner++)
+                m_sBotStringData[iOuter][iInner] = "";
+                
         for(int iOuter = 0; iOuter < m_checkBoxes.length; iOuter++)
             for(int iInner = 0; iInner < m_checkBoxes[iOuter].length; iInner++)
                 m_checkBoxes[iOuter][iInner].setSelected(false);
@@ -978,7 +1001,7 @@ public class Form extends javax.swing.JFrame
         jLabel14.setText("Match Number:");
 
         txMatchNumber.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txMatchNumber.setText("0");
+        txMatchNumber.setText("1");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
